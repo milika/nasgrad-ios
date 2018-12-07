@@ -25,7 +25,7 @@ var container: Container {
         return NetworkRequestEngine()
     }
     
-    container.register(IssueListService.self) { _ in
+    container.register(IssueListServiceProtocol.self) { _ in
         return IssueListService()
     }
     

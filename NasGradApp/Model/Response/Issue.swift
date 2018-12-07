@@ -19,8 +19,9 @@ struct Issue : Codable {
 	let description : String?
 	let issueType : String?
 	let categories : [String]?
-	let pictures : [String]?
-	let state : String?
+    let pictures: [String]?
+	let picturePreview : String?
+	let state : Int?
 	let location : Location?
 
 	enum CodingKeys: String, CodingKey {
@@ -31,7 +32,8 @@ struct Issue : Codable {
 		case description = "description"
 		case issueType = "issueType"
 		case categories = "categories"
-		case pictures = "pictures"
+        case pictures = "pictures"
+		case picturePreview = "picturePreview"
 		case state = "state"
 		case location = "location"
 	}
@@ -44,8 +46,9 @@ struct Issue : Codable {
 		description = try values.decodeIfPresent(String.self, forKey: .description)
 		issueType = try values.decodeIfPresent(String.self, forKey: .issueType)
 		categories = try values.decodeIfPresent([String].self, forKey: .categories)
-		pictures = try values.decodeIfPresent([String].self, forKey: .pictures)
-		state = try values.decodeIfPresent(String.self, forKey: .state)
+        pictures = try values.decodeIfPresent([String].self, forKey: .pictures)
+		picturePreview = try values.decodeIfPresent(String.self, forKey: .picturePreview)
+		state = try values.decodeIfPresent(Int.self, forKey: .state)
 		location = try values.decodeIfPresent(Location.self, forKey: .location)
 	}
 

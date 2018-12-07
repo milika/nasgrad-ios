@@ -14,11 +14,11 @@ class IssueTableViewCell: UITableViewCell {
     
     @IBOutlet weak var issueImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var categoryContainerView: UIView!
     @IBOutlet weak var category1Label: UILabel!
     @IBOutlet weak var category2Label: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var submittedNumberLabel: UILabel!
+    @IBOutlet weak var stateView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,10 +40,12 @@ class IssueTableViewCell: UITableViewCell {
         issueImageView?.layer.cornerRadius = Theme.shared.baseCornerRadius
         category1Label.layer.cornerRadius = Theme.shared.baseCornerRadius
         category2Label.layer.cornerRadius = Theme.shared.baseCornerRadius
+        stateView.layer.cornerRadius = Theme.shared.baseCornerRadius
         
         issueImageView.clipsToBounds = true
         category1Label.clipsToBounds = true
         category2Label.clipsToBounds = true
+        stateView.clipsToBounds = true
     }
     
     // MARK: Public Api

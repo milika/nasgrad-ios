@@ -14,6 +14,8 @@ enum Environment: String {
 
 struct Constants {
     
+    static let googleMapsApiKey = ""
+    
     struct Storyboard {
         static let storyboardName = "Main"
         static let loaderViewControllerID = "loaderViewController"
@@ -23,10 +25,13 @@ struct Constants {
     
     struct Segue {
         static let showIssueListSegue = "showIssueListSegue"
+        static let showSingleMapSegue = "showSingleMapSegue"
     }
     
     struct Localizable {
         static let test = "test"
+        static let editMap = "edit_map"
+        static let editSubmit = "edit_submit"
     }
     
     struct API {

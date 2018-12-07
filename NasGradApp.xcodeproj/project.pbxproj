@@ -15,6 +15,9 @@
 		ED21B09321BAC83F00A7C5AB /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B09021BAC83F00A7C5AB /* Types.swift */; };
 		ED21B09421BAC83F00A7C5AB /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B09121BAC83F00A7C5AB /* Categories.swift */; };
 		ED21B09621BAC8D000A7C5AB /* IssuesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B09521BAC8D000A7C5AB /* IssuesApi.swift */; };
+		ED21B09A21BAE33200A7C5AB /* SingleIssueMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B09921BAE33200A7C5AB /* SingleIssueMapViewController.swift */; };
+		ED21B09E21BB1B7E00A7C5AB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B09D21BB1B7E00A7C5AB /* Array+Extension.swift */; };
+		ED21B0A021BB1F4600A7C5AB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B09F21BB1F4600A7C5AB /* Utils.swift */; };
 		ED568A2221BA99FD00DEE28C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED568A2121BA99FD00DEE28C /* Localizable.strings */; };
 		ED568A2421BA9A2700DEE28C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2321BA9A2700DEE28C /* Constants.swift */; };
 		ED568A2621BA9DBE00DEE28C /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2521BA9DBE00DEE28C /* NetworkEngine.swift */; };
@@ -60,6 +63,9 @@
 		ED21B09021BAC83F00A7C5AB /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		ED21B09121BAC83F00A7C5AB /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		ED21B09521BAC8D000A7C5AB /* IssuesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesApi.swift; sourceTree = "<group>"; };
+		ED21B09921BAE33200A7C5AB /* SingleIssueMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleIssueMapViewController.swift; sourceTree = "<group>"; };
+		ED21B09D21BB1B7E00A7C5AB /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		ED21B09F21BB1F4600A7C5AB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		ED568A2121BA99FD00DEE28C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		ED568A2321BA9A2700DEE28C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED568A2521BA9DBE00DEE28C /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 				ED568A2F21BAA13C00DEE28C /* BaseViewController.swift */,
 				ED568A3121BAA15500DEE28C /* IssueListViewController.swift */,
 				ED568A3E21BAAC0500DEE28C /* LoaderViewController.swift */,
+				ED21B09921BAE33200A7C5AB /* SingleIssueMapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -267,6 +274,8 @@
 			children = (
 				ED568A2321BA9A2700DEE28C /* Constants.swift */,
 				ED21B08D21BABC5B00A7C5AB /* Theme.swift */,
+				ED21B09D21BB1B7E00A7C5AB /* Array+Extension.swift */,
+				ED21B09F21BB1F4600A7C5AB /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -498,6 +507,8 @@
 				ED568A2421BA9A2700DEE28C /* Constants.swift in Sources */,
 				ED568A3A21BAA73B00DEE28C /* IssueListService.swift in Sources */,
 				ED21B09321BAC83F00A7C5AB /* Types.swift in Sources */,
+				ED21B0A021BB1F4600A7C5AB /* Utils.swift in Sources */,
+				ED21B09A21BAE33200A7C5AB /* SingleIssueMapViewController.swift in Sources */,
 				ED568A3221BAA15500DEE28C /* IssueListViewController.swift in Sources */,
 				EDEF2C0C21BAB068001982AC /* Issue.swift in Sources */,
 				ED568A3421BAA36B00DEE28C /* NetworkRequestEngine.swift in Sources */,
@@ -506,6 +517,7 @@
 				ED568A4221BAACF800DEE28C /* LoaderManager.swift in Sources */,
 				ED568A2621BA9DBE00DEE28C /* NetworkEngine.swift in Sources */,
 				ED568A3F21BAAC0500DEE28C /* LoaderViewController.swift in Sources */,
+				ED21B09E21BB1B7E00A7C5AB /* Array+Extension.swift in Sources */,
 				ED568A3621BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift in Sources */,
 				ED568A2E21BA9F0400DEE28C /* NetworkError.swift in Sources */,
 				ED568A3D21BAA85800DEE28C /* DependencyInjectionContainer.swift in Sources */,
@@ -678,7 +690,7 @@
 			baseConfigurationReference = 3A0CD7C0C9068225BCF28221 /* Pods-NasGradApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TW98687ZKD;
 				INFOPLIST_FILE = "$(SRCROOT)/NasGradApp/Supporting Files/Info.plist";

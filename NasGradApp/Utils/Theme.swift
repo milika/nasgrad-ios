@@ -12,8 +12,9 @@ import UIKit
 class Theme {
     static let shared = Theme()
     
-    let gradskoZeleniloColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-    let putNoviSadColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+    let editButtonMapColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+    let editButtonSubmitColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    let mapInfoViewBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.9033203125)
     
     let baseFont = UIFont(name: "Helvetica", size: 18)
     let baseBoldFont = UIFont(name: "Helvetica-Bold ", size: 15)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 import CocoaLumberjack
 
 @UIApplicationMain
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         DDLog.add(DDTTYLogger.sharedInstance)
+        GMSServices.provideAPIKey(Constants.googleMapsApiKey)
         
         return true
     }
