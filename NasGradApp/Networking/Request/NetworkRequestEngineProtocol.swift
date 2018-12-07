@@ -10,4 +10,5 @@ import Foundation
 
 protocol NetworkRequestEngineProtocol {
     func getAllIssues() -> URLRequest
+    func getAllTypes() -> URLRequest
 }

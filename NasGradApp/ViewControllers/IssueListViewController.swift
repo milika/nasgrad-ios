@@ -16,9 +16,9 @@ class IssueListViewController: BaseViewController {
     
     // MARK: Properties
     
-    let networkEngine: NetworkEngineProtocol? = container.resolve(NetworkEngineProtocol.self)
-    let networkRequestEngine: NetworkRequestEngineProtocol? = container.resolve(NetworkRequestEngineProtocol.self)
-    let issueListService: IssueListService? = container.resolve(IssueListService.self)
+    let networkEngine: NetworkEngineProtocol = container.resolve(NetworkEngineProtocol.self)!
+    let networkRequestEngine: NetworkRequestEngineProtocol = container.resolve(NetworkRequestEngineProtocol.self)!
+    let issueListService: IssueListService = container.resolve(IssueListService.self)!
     
     // MARK: Lifecycle methods
     
@@ -29,7 +29,7 @@ class IssueListViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        fetchAllIssues()
+        fetchAllIssues()
     }
     
     // MARK: Parental methods
@@ -47,14 +47,13 @@ class IssueListViewController: BaseViewController {
     // MARK: Private network methods
     
     private func fetchAllIssues() {
-        let allIssuesRequest = networkRequestEngine?.getAllIssues()
+        let allIssuesRequest = networkRequestEngine.getAllIssues()
         
         showLoader {
-            self.networkEngine?.performNetworkRequest(forURLRequest: allIssuesRequest!, responseType: [Issue].self, completionHandler: { (data, response, error) in
-                
-                self.issueListService?.setData(data)
+            self.networkEngine.performNetworkRequest(forURLRequest: allIssuesRequest, responseType: IssuesApi.self, completionHandler: { (data, response, error) in
+                self.issueListService.setData(data)
                 hideLoader {
-                    // TODO: Refresh UI
+                    self.issuesTableView.reloadData()
                 }
             })
         }
@@ -70,7 +69,7 @@ extension IssueListViewController: UITableViewDelegate {
 
 extension IssueListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return issueListService.getNumberOfIssues()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,11 +81,13 @@ extension IssueListViewController: UITableViewDataSource {
         
         cell?.selectionStyle = .none
         
-        cell?.titleLabel.text = "Rupa na putu"
-        cell?.setCategory1Label(withText: " Gradsko zelenilo ", color: Theme.shared.gradskoZeleniloColor)
-        cell?.setCategory2Label(withText: nil, color: Theme.shared.gradskoZeleniloColor)
-        cell?.typeLabel.text = "Rupa na putu"
-        cell?.submittedNumberLabel.text = "76"
+        let issueViewData = self.issueListService.getIssueData(forIndex: indexPath.row)
+        
+        cell?.titleLabel.text = issueViewData.title
+        cell?.setCategory1Label(withText: issueViewData.category1Title, color: issueViewData.category1Color)
+        cell?.setCategory2Label(withText: issueViewData.category2Title, color: issueViewData.category2Color)
+        cell?.typeLabel.text = issueViewData.type
+        cell?.submittedNumberLabel.text = issueViewData.submittedNumber
         
         return cell!
     }

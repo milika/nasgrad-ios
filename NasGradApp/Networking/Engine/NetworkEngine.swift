@@ -45,7 +45,7 @@ class NetworkEngine: NetworkEngineProtocol {
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            DDLogError("Error during parsing")
+            DDLogError("Error during parsing: \(error.localizedDescription)")
         }
         return nil
     }

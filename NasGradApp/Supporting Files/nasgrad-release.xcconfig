@@ -10,8 +10,8 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 NG_APP_NAME = NasGradApp
-NG_APP_VERSION = 1.0
+NG_APP_VERSION = 1.0.0
 NG_APP_BUNDLE_ID = com.nasgrad.NasGradApp
-NG_API_URL = https:\/\/api.mobilitymixx.nl/mixx-api
+NG_API_URL = http:\/\/68.183.223.223:8080/api
 NG_ENV = RELEASE
 

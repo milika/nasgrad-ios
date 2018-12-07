@@ -32,7 +32,8 @@ struct Constants {
     struct API {
         static let apiUrl = infoForKey("Api Url")!
         
-        static let getAllIssues = apiUrl + "/issues"
+        static let getAllIssues = apiUrl + "/getissuelist"
+        static let getAllTypes = apiUrl + "/types"
     }
     
     static let environment = Environment(rawValue: infoForKey("Environment") ?? "RELEASE") ?? .release

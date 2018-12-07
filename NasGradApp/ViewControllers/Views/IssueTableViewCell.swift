@@ -48,16 +48,16 @@ class IssueTableViewCell: UITableViewCell {
     
     // MARK: Public Api
     
-    func setCategory1Label(withText: String?, color: UIColor) {
-        self.category1Label.text = withText
+    func setCategory1Label(withText: String?, color: UIColor?) {
+        self.category1Label.text = " \(withText!) "
         self.category1Label.backgroundColor = color
         self.category2Label.isHidden = true
     }
     
-    func setCategory2Label(withText: String?, color: UIColor) {
+    func setCategory2Label(withText: String?, color: UIColor?) {
         if let withText = withText {
             self.category2Label.isHidden = false
-            self.category2Label.text = withText
+            self.category2Label.text = " \(withText) "
             self.category2Label.backgroundColor = color
         }
     }

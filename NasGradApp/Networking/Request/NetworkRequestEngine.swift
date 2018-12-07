@@ -21,6 +21,11 @@ class NetworkRequestEngine: NetworkRequestEngineProtocol {
         return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
     }
     
+    func getAllTypes() -> URLRequest {
+        let endpointURL = URL(string: Constants.API.getAllTypes)!
+        return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
+    }
+    
     private func createRequestWithUrl(_ url: URL, httpMethod: String, params: Dictionary<String, AnyObject>?) -> URLRequest? {
         var urlRequest = URLRequest(url: url)
         
@@ -35,8 +40,8 @@ class NetworkRequestEngine: NetworkRequestEngineProtocol {
                     return nil
                 }
                 
-                urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 urlRequest.httpBody = postData
+                urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             } else if (httpMethod == HttpMethod.Get) {
                 var components = URLComponents(string: url.absoluteString)
                 components?.queryItems = params!.map { eachDict in
