@@ -1,0 +1,643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32830396BE19B51508F7F381 /* Pods_NasGradAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57030D874D65DDABC3470373 /* Pods_NasGradAppTests.framework */; };
+		742544E222B3B60FC3342849 /* Pods_NasGradApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7D54B6E2CCEB81BF1FB38B /* Pods_NasGradApp.framework */; };
+		ED568A2221BA99FD00DEE28C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED568A2121BA99FD00DEE28C /* Localizable.strings */; };
+		ED568A2421BA9A2700DEE28C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2321BA9A2700DEE28C /* Constants.swift */; };
+		EDF849CE21B9800E00B332C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF849CD21B9800E00B332C3 /* AppDelegate.swift */; };
+		EDF849D321B9800E00B332C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF849D121B9800E00B332C3 /* Main.storyboard */; };
+		EDF849D521B9800F00B332C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF849D421B9800F00B332C3 /* Assets.xcassets */; };
+		EDF849D821B9800F00B332C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF849D621B9800F00B332C3 /* LaunchScreen.storyboard */; };
+		EDF849E321B9800F00B332C3 /* NasGradAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF849E221B9800F00B332C3 /* NasGradAppTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDF849DF21B9800F00B332C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDF849C221B9800E00B332C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF849C921B9800E00B332C3;
+			remoteInfo = NasGradApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		25170A45E43EBE539B3F842E /* Pods-NasGradAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradAppTests/Pods-NasGradAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		3A0CD7C0C9068225BCF28221 /* Pods-NasGradApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp.debug.xcconfig"; sourceTree = "<group>"; };
+		57030D874D65DDABC3470373 /* Pods_NasGradAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasGradAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77BC6BEFF440B4AA63DB4497 /* Pods-NasGradApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp.release.xcconfig"; sourceTree = "<group>"; };
+		C7A04B0FFE782BECF974D3E5 /* Pods-NasGradAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradAppTests/Pods-NasGradAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB7D54B6E2CCEB81BF1FB38B /* Pods_NasGradApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasGradApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED568A2121BA99FD00DEE28C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		ED568A2321BA9A2700DEE28C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EDF849CA21B9800E00B332C3 /* NasGradApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasGradApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF849CD21B9800E00B332C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDF849D221B9800E00B332C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDF849D421B9800F00B332C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDF849D721B9800F00B332C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDF849D921B9800F00B332C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF849DE21B9800F00B332C3 /* NasGradAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasGradAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF849E221B9800F00B332C3 /* NasGradAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasGradAppTests.swift; sourceTree = "<group>"; };
+		EDF849E421B9800F00B332C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDF849C721B9800E00B332C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				742544E222B3B60FC3342849 /* Pods_NasGradApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF849DB21B9800F00B332C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32830396BE19B51508F7F381 /* Pods_NasGradAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDF849C121B9800E00B332C3 = {
+			isa = PBXGroup;
+			children = (
+				EDF849CC21B9800E00B332C3 /* NasGradApp */,
+				EDF849E121B9800F00B332C3 /* NasGradAppTests */,
+				EDF849CB21B9800E00B332C3 /* Products */,
+				FCC3E05024AA1FD413E1AF60 /* Pods */,
+				F99583B6339FB0E52D392269 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EDF849CB21B9800E00B332C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDF849CA21B9800E00B332C3 /* NasGradApp.app */,
+				EDF849DE21B9800F00B332C3 /* NasGradAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDF849CC21B9800E00B332C3 /* NasGradApp */ = {
+			isa = PBXGroup;
+			children = (
+				EDF849ED21B9807500B332C3 /* ViewControllers */,
+				EDF849EF21B9809400B332C3 /* Networking */,
+				EDF849EE21B9808500B332C3 /* ServicesLayer */,
+				EDF849F121B980A700B332C3 /* DatabaseLayer */,
+				EDF849F021B9809D00B332C3 /* Utils */,
+				EDF849F221B980CA00B332C3 /* Supporting Files */,
+				EDF849D421B9800F00B332C3 /* Assets.xcassets */,
+			);
+			path = NasGradApp;
+			sourceTree = "<group>";
+		};
+		EDF849E121B9800F00B332C3 /* NasGradAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF849E221B9800F00B332C3 /* NasGradAppTests.swift */,
+				EDF849E421B9800F00B332C3 /* Info.plist */,
+			);
+			path = NasGradAppTests;
+			sourceTree = "<group>";
+		};
+		EDF849ED21B9807500B332C3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EDF849EE21B9808500B332C3 /* ServicesLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServicesLayer;
+			sourceTree = "<group>";
+		};
+		EDF849EF21B9809400B332C3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EDF849F021B9809D00B332C3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ED568A2321BA9A2700DEE28C /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EDF849F121B980A700B332C3 /* DatabaseLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DatabaseLayer;
+			sourceTree = "<group>";
+		};
+		EDF849F221B980CA00B332C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDF849D921B9800F00B332C3 /* Info.plist */,
+				EDF849D621B9800F00B332C3 /* LaunchScreen.storyboard */,
+				EDF849D121B9800E00B332C3 /* Main.storyboard */,
+				EDF849CD21B9800E00B332C3 /* AppDelegate.swift */,
+				ED568A2121BA99FD00DEE28C /* Localizable.strings */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F99583B6339FB0E52D392269 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB7D54B6E2CCEB81BF1FB38B /* Pods_NasGradApp.framework */,
+				57030D874D65DDABC3470373 /* Pods_NasGradAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCC3E05024AA1FD413E1AF60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A0CD7C0C9068225BCF28221 /* Pods-NasGradApp.debug.xcconfig */,
+				77BC6BEFF440B4AA63DB4497 /* Pods-NasGradApp.release.xcconfig */,
+				C7A04B0FFE782BECF974D3E5 /* Pods-NasGradAppTests.debug.xcconfig */,
+				25170A45E43EBE539B3F842E /* Pods-NasGradAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDF849C921B9800E00B332C3 /* NasGradApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF849E721B9800F00B332C3 /* Build configuration list for PBXNativeTarget "NasGradApp" */;
+			buildPhases = (
+				2B36B93215854DCB5E0427DC /* [CP] Check Pods Manifest.lock */,
+				EDF849C621B9800E00B332C3 /* Sources */,
+				EDF849C721B9800E00B332C3 /* Frameworks */,
+				EDF849C821B9800E00B332C3 /* Resources */,
+				9C181A2DCB522F3E7D5134A3 /* [CP] Embed Pods Frameworks */,
+				02E617AEEF6993E1D5735246 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NasGradApp;
+			productName = NasGradApp;
+			productReference = EDF849CA21B9800E00B332C3 /* NasGradApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDF849DD21B9800F00B332C3 /* NasGradAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF849EA21B9800F00B332C3 /* Build configuration list for PBXNativeTarget "NasGradAppTests" */;
+			buildPhases = (
+				8E65F10AC90C5A142B274BB3 /* [CP] Check Pods Manifest.lock */,
+				EDF849DA21B9800F00B332C3 /* Sources */,
+				EDF849DB21B9800F00B332C3 /* Frameworks */,
+				EDF849DC21B9800F00B332C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF849E021B9800F00B332C3 /* PBXTargetDependency */,
+			);
+			name = NasGradAppTests;
+			productName = NasGradAppTests;
+			productReference = EDF849DE21B9800F00B332C3 /* NasGradAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDF849C221B9800E00B332C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = NasGrad;
+				TargetAttributes = {
+					EDF849C921B9800E00B332C3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					EDF849DD21B9800F00B332C3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = EDF849C921B9800E00B332C3;
+					};
+				};
+			};
+			buildConfigurationList = EDF849C521B9800E00B332C3 /* Build configuration list for PBXProject "NasGradApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDF849C121B9800E00B332C3;
+			productRefGroup = EDF849CB21B9800E00B332C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDF849C921B9800E00B332C3 /* NasGradApp */,
+				EDF849DD21B9800F00B332C3 /* NasGradAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDF849C821B9800E00B332C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF849D821B9800F00B332C3 /* LaunchScreen.storyboard in Resources */,
+				ED568A2221BA99FD00DEE28C /* Localizable.strings in Resources */,
+				EDF849D521B9800F00B332C3 /* Assets.xcassets in Resources */,
+				EDF849D321B9800E00B332C3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF849DC21B9800F00B332C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02E617AEEF6993E1D5735246 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B36B93215854DCB5E0427DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NasGradApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E65F10AC90C5A142B274BB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NasGradAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C181A2DCB522F3E7D5134A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDF849C621B9800E00B332C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF849CE21B9800E00B332C3 /* AppDelegate.swift in Sources */,
+				ED568A2421BA9A2700DEE28C /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF849DA21B9800F00B332C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF849E321B9800F00B332C3 /* NasGradAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDF849E021B9800F00B332C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDF849C921B9800E00B332C3 /* NasGradApp */;
+			targetProxy = EDF849DF21B9800F00B332C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDF849D121B9800E00B332C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF849D221B9800E00B332C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDF849D621B9800F00B332C3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF849D721B9800F00B332C3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDF849E521B9800F00B332C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDF849E621B9800F00B332C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDF849E821B9800F00B332C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A0CD7C0C9068225BCF28221 /* Pods-NasGradApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H2N6F5RHWC;
+				INFOPLIST_FILE = "$(SRCROOT)/NasGradApp/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nasgrad.NasGradApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Generic_AdHoc;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDF849E921B9800F00B332C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77BC6BEFF440B4AA63DB4497 /* Pods-NasGradApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H2N6F5RHWC;
+				INFOPLIST_FILE = "$(SRCROOT)/NasGradApp/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nasgrad.NasGradApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Generic_AdHoc;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EDF849EB21B9800F00B332C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7A04B0FFE782BECF974D3E5 /* Pods-NasGradAppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NasGradAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nasgrad.NasGradAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NasGradApp.app/NasGradApp";
+			};
+			name = Debug;
+		};
+		EDF849EC21B9800F00B332C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25170A45E43EBE539B3F842E /* Pods-NasGradAppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NasGradAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nasgrad.NasGradAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NasGradApp.app/NasGradApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDF849C521B9800E00B332C3 /* Build configuration list for PBXProject "NasGradApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF849E521B9800F00B332C3 /* Debug */,
+				EDF849E621B9800F00B332C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF849E721B9800F00B332C3 /* Build configuration list for PBXNativeTarget "NasGradApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF849E821B9800F00B332C3 /* Debug */,
+				EDF849E921B9800F00B332C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF849EA21B9800F00B332C3 /* Build configuration list for PBXNativeTarget "NasGradAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF849EB21B9800F00B332C3 /* Debug */,
+				EDF849EC21B9800F00B332C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDF849C221B9800E00B332C3 /* Project object */;
+}
