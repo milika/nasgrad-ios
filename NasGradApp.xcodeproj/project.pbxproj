@@ -9,8 +9,23 @@
 /* Begin PBXBuildFile section */
 		32830396BE19B51508F7F381 /* Pods_NasGradAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57030D874D65DDABC3470373 /* Pods_NasGradAppTests.framework */; };
 		742544E222B3B60FC3342849 /* Pods_NasGradApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7D54B6E2CCEB81BF1FB38B /* Pods_NasGradApp.framework */; };
+		ED21B08C21BAB7BE00A7C5AB /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B08B21BAB7BE00A7C5AB /* IssueTableViewCell.swift */; };
+		ED21B08E21BABC5B00A7C5AB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B08D21BABC5B00A7C5AB /* Theme.swift */; };
 		ED568A2221BA99FD00DEE28C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED568A2121BA99FD00DEE28C /* Localizable.strings */; };
 		ED568A2421BA9A2700DEE28C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2321BA9A2700DEE28C /* Constants.swift */; };
+		ED568A2621BA9DBE00DEE28C /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2521BA9DBE00DEE28C /* NetworkEngine.swift */; };
+		ED568A2C21BA9EF600DEE28C /* NetworkEngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2B21BA9EF600DEE28C /* NetworkEngineProtocol.swift */; };
+		ED568A2E21BA9F0400DEE28C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2D21BA9F0400DEE28C /* NetworkError.swift */; };
+		ED568A3021BAA13C00DEE28C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A2F21BAA13C00DEE28C /* BaseViewController.swift */; };
+		ED568A3221BAA15500DEE28C /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3121BAA15500DEE28C /* IssueListViewController.swift */; };
+		ED568A3421BAA36B00DEE28C /* NetworkRequestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3321BAA36B00DEE28C /* NetworkRequestEngine.swift */; };
+		ED568A3621BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3521BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift */; };
+		ED568A3A21BAA73B00DEE28C /* IssueListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3921BAA73B00DEE28C /* IssueListService.swift */; };
+		ED568A3D21BAA85800DEE28C /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3C21BAA85800DEE28C /* DependencyInjectionContainer.swift */; };
+		ED568A3F21BAAC0500DEE28C /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3E21BAAC0500DEE28C /* LoaderViewController.swift */; };
+		ED568A4221BAACF800DEE28C /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A4121BAACF800DEE28C /* LoaderManager.swift */; };
+		EDEF2C0B21BAB068001982AC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF2C0921BAB068001982AC /* Location.swift */; };
+		EDEF2C0C21BAB068001982AC /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF2C0A21BAB068001982AC /* Issue.swift */; };
 		EDF849CE21B9800E00B332C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF849CD21B9800E00B332C3 /* AppDelegate.swift */; };
 		EDF849D321B9800E00B332C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF849D121B9800E00B332C3 /* Main.storyboard */; };
 		EDF849D521B9800F00B332C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF849D421B9800F00B332C3 /* Assets.xcassets */; };
@@ -35,8 +50,24 @@
 		77BC6BEFF440B4AA63DB4497 /* Pods-NasGradApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp.release.xcconfig"; sourceTree = "<group>"; };
 		C7A04B0FFE782BECF974D3E5 /* Pods-NasGradAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradAppTests/Pods-NasGradAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB7D54B6E2CCEB81BF1FB38B /* Pods_NasGradApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasGradApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED21B08B21BAB7BE00A7C5AB /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
+		ED21B08D21BABC5B00A7C5AB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		ED568A2121BA99FD00DEE28C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		ED568A2321BA9A2700DEE28C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ED568A2521BA9DBE00DEE28C /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		ED568A2B21BA9EF600DEE28C /* NetworkEngineProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngineProtocol.swift; sourceTree = "<group>"; };
+		ED568A2D21BA9F0400DEE28C /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		ED568A2F21BAA13C00DEE28C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		ED568A3121BAA15500DEE28C /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
+		ED568A3321BAA36B00DEE28C /* NetworkRequestEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestEngine.swift; sourceTree = "<group>"; };
+		ED568A3521BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestEngineProtocol.swift; sourceTree = "<group>"; };
+		ED568A3921BAA73B00DEE28C /* IssueListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListService.swift; sourceTree = "<group>"; };
+		ED568A3C21BAA85800DEE28C /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
+		ED568A3E21BAAC0500DEE28C /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
+		ED568A4121BAACF800DEE28C /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
+		EDEF2C0921BAB068001982AC /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		EDEF2C0A21BAB068001982AC /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		EDEF2C0F21BAB19D001982AC /* nasgrad-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "nasgrad-release.xcconfig"; sourceTree = "<group>"; };
 		EDF849CA21B9800E00B332C3 /* NasGradApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasGradApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF849CD21B9800E00B332C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF849D221B9800E00B332C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +99,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED21B08A21BAB7AA00A7C5AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED21B08B21BAB7BE00A7C5AB /* IssueTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED568A2721BA9DC800DEE28C /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				ED568A2521BA9DBE00DEE28C /* NetworkEngine.swift */,
+				ED568A2B21BA9EF600DEE28C /* NetworkEngineProtocol.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		ED568A2921BA9DD300DEE28C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				ED568A2D21BA9F0400DEE28C /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		ED568A2A21BA9DD900DEE28C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				ED568A3321BAA36B00DEE28C /* NetworkRequestEngine.swift */,
+				ED568A3521BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		ED568A3B21BAA84300DEE28C /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				ED568A3C21BAA85800DEE28C /* DependencyInjectionContainer.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		ED568A4021BAACA700DEE28C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ED568A4121BAACF800DEE28C /* LoaderManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ED568A4321BAAEDB00DEE28C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDEF2C0E21BAB096001982AC /* Response */,
+				EDEF2C0D21BAB08A001982AC /* Request */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDEF2C0D21BAB08A001982AC /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EDEF2C0E21BAB096001982AC /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EDEF2C0A21BAB068001982AC /* Issue.swift */,
+				EDEF2C0921BAB068001982AC /* Location.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		EDF849C121B9800E00B332C3 = {
 			isa = PBXGroup;
 			children = (
@@ -91,12 +197,16 @@
 		EDF849CC21B9800E00B332C3 /* NasGradApp */ = {
 			isa = PBXGroup;
 			children = (
+				ED568A4321BAAEDB00DEE28C /* Model */,
 				EDF849ED21B9807500B332C3 /* ViewControllers */,
 				EDF849EF21B9809400B332C3 /* Networking */,
 				EDF849EE21B9808500B332C3 /* ServicesLayer */,
+				ED568A3B21BAA84300DEE28C /* DependencyInjection */,
+				ED568A4021BAACA700DEE28C /* Helpers */,
 				EDF849F121B980A700B332C3 /* DatabaseLayer */,
 				EDF849F021B9809D00B332C3 /* Utils */,
 				EDF849F221B980CA00B332C3 /* Supporting Files */,
+				EDF849CD21B9800E00B332C3 /* AppDelegate.swift */,
 				EDF849D421B9800F00B332C3 /* Assets.xcassets */,
 			);
 			path = NasGradApp;
@@ -114,6 +224,10 @@
 		EDF849ED21B9807500B332C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				ED21B08A21BAB7AA00A7C5AB /* Views */,
+				ED568A2F21BAA13C00DEE28C /* BaseViewController.swift */,
+				ED568A3121BAA15500DEE28C /* IssueListViewController.swift */,
+				ED568A3E21BAAC0500DEE28C /* LoaderViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,6 +235,7 @@
 		EDF849EE21B9808500B332C3 /* ServicesLayer */ = {
 			isa = PBXGroup;
 			children = (
+				ED568A3921BAA73B00DEE28C /* IssueListService.swift */,
 			);
 			path = ServicesLayer;
 			sourceTree = "<group>";
@@ -128,6 +243,9 @@
 		EDF849EF21B9809400B332C3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				ED568A2721BA9DC800DEE28C /* Engine */,
+				ED568A2A21BA9DD900DEE28C /* Request */,
+				ED568A2921BA9DD300DEE28C /* Error */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -136,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				ED568A2321BA9A2700DEE28C /* Constants.swift */,
+				ED21B08D21BABC5B00A7C5AB /* Theme.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -153,8 +272,8 @@
 				EDF849D921B9800F00B332C3 /* Info.plist */,
 				EDF849D621B9800F00B332C3 /* LaunchScreen.storyboard */,
 				EDF849D121B9800E00B332C3 /* Main.storyboard */,
-				EDF849CD21B9800E00B332C3 /* AppDelegate.swift */,
 				ED568A2121BA99FD00DEE28C /* Localizable.strings */,
+				EDEF2C0F21BAB19D001982AC /* nasgrad-release.xcconfig */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -362,8 +481,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED568A2C21BA9EF600DEE28C /* NetworkEngineProtocol.swift in Sources */,
 				EDF849CE21B9800E00B332C3 /* AppDelegate.swift in Sources */,
 				ED568A2421BA9A2700DEE28C /* Constants.swift in Sources */,
+				ED568A3A21BAA73B00DEE28C /* IssueListService.swift in Sources */,
+				ED568A3221BAA15500DEE28C /* IssueListViewController.swift in Sources */,
+				EDEF2C0C21BAB068001982AC /* Issue.swift in Sources */,
+				ED568A3421BAA36B00DEE28C /* NetworkRequestEngine.swift in Sources */,
+				EDEF2C0B21BAB068001982AC /* Location.swift in Sources */,
+				ED568A4221BAACF800DEE28C /* LoaderManager.swift in Sources */,
+				ED568A2621BA9DBE00DEE28C /* NetworkEngine.swift in Sources */,
+				ED568A3F21BAAC0500DEE28C /* LoaderViewController.swift in Sources */,
+				ED568A3621BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift in Sources */,
+				ED568A2E21BA9F0400DEE28C /* NetworkError.swift in Sources */,
+				ED568A3D21BAA85800DEE28C /* DependencyInjectionContainer.swift in Sources */,
+				ED568A3021BAA13C00DEE28C /* BaseViewController.swift in Sources */,
+				ED21B08C21BAB7BE00A7C5AB /* IssueTableViewCell.swift in Sources */,
+				ED21B08E21BABC5B00A7C5AB /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +541,7 @@
 /* Begin XCBuildConfiguration section */
 		EDF849E521B9800F00B332C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDEF2C0F21BAB19D001982AC /* nasgrad-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -468,6 +603,7 @@
 		};
 		EDF849E621B9800F00B332C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDEF2C0F21BAB19D001982AC /* nasgrad-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -528,7 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = H2N6F5RHWC;
+				DEVELOPMENT_TEAM = TW98687ZKD;
 				INFOPLIST_FILE = "$(SRCROOT)/NasGradApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -537,7 +673,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nasgrad.NasGradApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Generic_AdHoc;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -550,7 +686,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = H2N6F5RHWC;
+				DEVELOPMENT_TEAM = TW98687ZKD;
 				INFOPLIST_FILE = "$(SRCROOT)/NasGradApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -559,7 +695,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nasgrad.NasGradApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Generic_AdHoc;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,0 +1,13 @@
+//
+//  NetworkRequestEngineProtocol.swift
+//  NasGradApp
+//
+//  Created by Dorian Cizmar on 12/7/18.
+//  Copyright © 2018 NasGrad. All rights reserved.
+//
+
+import Foundation
+
+protocol NetworkRequestEngineProtocol {
+    func getAllIssues() -> URLRequest
+}
