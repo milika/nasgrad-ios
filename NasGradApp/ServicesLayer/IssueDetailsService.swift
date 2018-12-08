@@ -17,6 +17,7 @@ protocol IssueDetailsServiceProtocol {
     
     func setData(_ data: Issue?)
     func getViewData() -> IssueDetailsViewData?
+    func getMailData() -> MailData
 }
 
 class IssueDetailsService: IssueDetailsServiceProtocol {
@@ -72,6 +73,21 @@ class IssueDetailsService: IssueDetailsServiceProtocol {
         let address = "Bulevar oslobodjenja" // TODO: Fetch this data depends on lat/long
         
         return IssueDetailsViewData(title: fromIssue.title, images: [picture], type: type?.name, category1Title: category1?.name, category1Color: cat1Color, category2Title: category2?.name, category2Color: cat2Color, address: address, location: location, description: fromIssue.description)
+    }
+    
+    func getMailData() -> MailData {
+        if let issue = self.data {
+            var emails = [String]()
+            issue.categories?.forEach({ (catId) in
+                if let category = self.typeService?.getCategoryById(catId) {
+                    if let mail = category.email {
+                        emails.append(mail)
+                    }
+                }
+            })
+            return MailData(emails: emails, subject: "Komunalna prijava (#NasGradApp \(issue.id!)", issueUrl: "\(Constants.API.apiUrl)/issuedetail/\(issue.id!)", issueName: issue.title ?? "")
+        }
+        return MailData(emails: [], subject: "", issueUrl: "", issueName: "")
     }
     
     

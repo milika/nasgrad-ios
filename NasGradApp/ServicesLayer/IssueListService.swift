@@ -14,6 +14,8 @@ typealias IssueViewData = (previewImage: UIImage?, title: String, category1Title
 
 typealias MapIssueViewData = (previewImage: UIImage?, title: String, description: String?, category1Title: String?, category1Color: UIColor?, category2Title: String?, category2Color: UIColor?, type: String, submittedNumber: String, location: CLLocationCoordinate2D, stateColor: UIColor?)
 
+typealias MailData = (emails: [String], subject: String, issueUrl: String, issueName: String)
+
 protocol IssueListServiceProtocol {
     var typeService: TypeServiceProtocol? { set get }
     
@@ -24,6 +26,8 @@ protocol IssueListServiceProtocol {
     func isSecondCategoryVisible(forId: Int) -> Bool
     func getAllLocations() -> [(CLLocationCoordinate2D, String)]
     func getMapIssueData(forIdentifier: String) -> MapIssueViewData
+    func getMailData(forIndex: Int) -> MailData
+    func getId(forIndex: Int) -> String?
 }
 
 class IssueListService: IssueListServiceProtocol {
@@ -122,5 +126,25 @@ class IssueListService: IssueListServiceProtocol {
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         return MapIssueViewData(previewImage: issueData.previewImage, title: issueData.title, description: issue.description, category1Title: issueData.category1Title, category1Color: issueData.category1Color, category2Title: issueData.category2Title, category2Color: issueData.category2Color, type: issueData.type, submittedNumber: issueData.submittedNumber, location: location, stateColor: issueData.stateColor)
+    }
+    
+    func getMailData(forIndex: Int) -> MailData {
+        if let issue = self.data?.object(atIndex: forIndex) {
+            var emails = [String]()
+            issue.categories?.forEach({ (catId) in
+                if let category = self.typeService?.getCategoryById(catId) {
+                    if let mail = category.email {
+                        emails.append(mail)
+                    }
+                }
+            })
+            
+            return MailData(emails: emails, subject: "Komunalna prijava (#NasGradApp \(issue.id!)", issueUrl: "\(Constants.API.apiUrl)/issuedetail/\(issue.id!)", issueName: issue.title ?? "")
+        }
+        return MailData(emails: [], subject: "", issueUrl: "", issueName: "")
+    }
+    
+    func getId(forIndex: Int) -> String? {
+        return self.data?.object(atIndex: forIndex)?.id
     }
 }

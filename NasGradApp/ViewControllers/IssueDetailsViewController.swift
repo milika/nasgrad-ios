@@ -26,7 +26,7 @@ class IssueDetailsViewController: BaseViewController {
     let networkRequestEngine: NetworkRequestEngineProtocol = container.resolve(NetworkRequestEngineProtocol.self)!
     var detailsService: IssueDetailsServiceProtocol = container.resolve(IssueDetailsServiceProtocol.self)!
     
-    var issueId: String? = "1dcfc125-7df9-4d81-af3b-14c8c7b47bfe"
+    var issueId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,12 +82,13 @@ class IssueDetailsViewController: BaseViewController {
     }
     
     @IBAction func submitAction(_ sender: Any) {
+        let mailData = self.detailsService.getMailData()
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setSubject("Prijavi problem")
-            mail.setMessageBody("Neki tekst", isHTML: true)
-            
+            mail.setToRecipients(mailData.emails)
+            mail.setSubject(mailData.subject)
+            mail.setMessageBody("Poštovani,<br><br>Želela / Želeo bih da prijavim sledeći problem - \(mailData.issueName)<br><br>Detalje problema (opis, slike i lokaciju na mapi) možete videti na sledećoj vebsajt stranici:<br><br><a href=\"\(mailData.issueUrl)\">\(mailData.issueUrl)", isHTML: true)
             self.present(mail, animated: true)
         }
     }

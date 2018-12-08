@@ -68,6 +68,10 @@ class IssueListViewController: BaseViewController {
             } else if segueId == Constants.Segue.showIssueDetailsSegue {
                 if let detailsViewController = segue.destination as? IssueDetailsViewController {
                     detailsViewController.detailsService.typeService = self.typeService
+                    if let index = selectedCellIndex {
+                        detailsViewController.issueId = issueListService.getId(forIndex: index)
+                    }
+
                 }
             }
         }
@@ -132,13 +136,13 @@ extension IssueListViewController: UITableViewDelegate {
         let submit = UITableViewRowAction(style: .normal, title: NSLocalizedString(Constants.Localizable.editSubmit, comment: "")) { action, index in
             DDLogDebug("Submit issue action")
             self.selectedCellIndex = indexPath.row
-            
+            let mailData = self.issueListService.getMailData(forIndex: indexPath.row)
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
-                mail.setSubject("Prijavi problem")
-                mail.setMessageBody("Neki tekst", isHTML: true)
-                
+                mail.setToRecipients(mailData.emails)
+                mail.setSubject(mailData.subject)
+                mail.setMessageBody("Poštovani,<br><br>Želela / Želeo bih da prijavim sledeći problem - \(mailData.issueName)<br><br>Detalje problema (opis, slike i lokaciju na mapi) možete videti na sledećoj vebsajt stranici:<br><br><a href=\"\(mailData.issueUrl)\">\(mailData.issueUrl)", isHTML: true)
                 self.present(mail, animated: true)
             }
             
@@ -149,6 +153,7 @@ extension IssueListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCellIndex = indexPath.row
         performSegue(withIdentifier: Constants.Segue.showIssueDetailsSegue, sender: nil)
     }
 }
