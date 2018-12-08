@@ -19,7 +19,9 @@ protocol IssueListServiceProtocol {
     func getNumberOfIssues() -> Int
     func getIssueData(forIndex: Int) -> IssueViewData
     func getSingleMapIssueData(forIndex: Int) -> MapIssueViewData
-    func isSecondCategoryVisible() -> Bool
+    func isSecondCategoryVisible(forId: Int) -> Bool
+    func getAllLocations() -> [(CLLocationCoordinate2D, String)]
+    func getMapIssueData(forIdentifier: String) -> MapIssueViewData
 }
 
 class IssueListService: IssueListServiceProtocol {
@@ -43,33 +45,41 @@ class IssueListService: IssueListServiceProtocol {
     }
     
     func getSingleMapIssueData(forIndex: Int) -> MapIssueViewData {
+        
+        if let issue = data?.object(atIndex: forIndex) {
+            return getViewData(fromIssue: issue)
+        }
+        
         return MapIssueViewData(previewImage: #imageLiteral(resourceName: "gradskoZelenilo"), title: "Rupa na putu na Bulevaru Oslobodjenja", description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.", category1Title: "Gradsko zelenilo", category1Color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.5044611151), category2Title: "Putevi NS", category2Color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.5), type: "Rupa na putu", submittedNumber: "28", location: CLLocationCoordinate2D(latitude: 45.262283, longitude: 19.835551))
     }
     
-    func isSecondCategoryVisible() -> Bool {
-        return true
+    func isSecondCategoryVisible(forId: Int) -> Bool {
+        return (data?.object(atIndex: forId)?.categories?.count ?? 0) > 1
     }
-}
-
-class IssueListServiceMock: IssueListServiceProtocol {
     
-    func setData(_ data: [Issue]?) {
+    func getAllLocations() -> [(CLLocationCoordinate2D, String)] {
+        var locations = [(CLLocationCoordinate2D, String)]()
+        data?.forEach({ issue in
+            if let latitude = issue.location?.latitude, let longitude = issue.location?.longitude {
+                locations.append((CLLocationCoordinate2D(latitude: latitude, longitude: longitude), issue.id ?? ""))
+            }
+        })
+        return locations
+    }
+    
+    func getMapIssueData(forIdentifier: String) -> MapIssueViewData {
+        if let issue = data?.filter({$0.id == forIdentifier}).first {
+            return getViewData(fromIssue: issue)
+        }
         
+        return MapIssueViewData(previewImage: #imageLiteral(resourceName: "gradskoZelenilo"), title: "Rupa na putu na Bulevaru Oslobodjenja", description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.", category1Title: "Gradsko zelenilo", category1Color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.5044611151), category2Title: "Putevi NS", category2Color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.5), type: "Rupa na putu", submittedNumber: "28", location: CLLocationCoordinate2D(latitude: 45.262283, longitude: 19.835551))
     }
     
-    func getNumberOfIssues() -> Int {
-        return 2
-    }
-    
-    func getIssueData(forIndex: Int) -> IssueViewData {
-        return IssueViewData(previewImage: #imageLiteral(resourceName: "gradskoZelenilo"), title: "Rupa na putu na Bulevaru Oslobodjenja", category1Title: "Gradsko zelenilo", category1Color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), category2Title: "Putevi NS", category2Color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), type: "Rupa na putu", submittedNumber: "28")
-    }
-    
-    func getSingleMapIssueData(forIndex: Int) -> MapIssueViewData {
-        return MapIssueViewData(previewImage: #imageLiteral(resourceName: "gradskoZelenilo"), title: "Rupa na putu na Bulevaru Oslobodjenja", description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.", category1Title: "Gradsko zelenilo", category1Color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), category2Title: "Putevi NS", category2Color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), type: "Rupa na putu", submittedNumber: "28", location: CLLocationCoordinate2D(latitude: 45.262283, longitude: 19.835551))
-    }
-    
-    func isSecondCategoryVisible() -> Bool {
-        return false
+    private func getViewData(fromIssue issue: Issue) -> MapIssueViewData {
+        let previewImage = getImage(fromBase64String: issue.picturePreview ?? "")
+        let latitude = issue.location?.latitude ?? -1
+        let longitude = issue.location?.longitude ?? -1
+        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        return MapIssueViewData(previewImage: previewImage, title: issue.title!, description: issue.description, category1Title: "Gradsko zelenilo", category1Color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.5044611151), category2Title: "Putevi NS", category2Color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.5), type: issue.issueType ?? "", submittedNumber: "28", location: location)
     }
 }

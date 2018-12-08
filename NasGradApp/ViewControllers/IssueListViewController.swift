@@ -71,8 +71,10 @@ class IssueListViewController: BaseViewController {
             self.networkEngine.performNetworkRequest(forURLRequest: allIssuesRequest, responseType: [Issue].self, completionHandler: { (data, response, error) in
                 self.issueListService.setData(data)
                 DDLogVerbose(String(describing: data))
-                hideLoader {
-                    self.issuesTableView.reloadData()
+                DispatchQueue.main.async {
+                    hideLoader {
+                        self.issuesTableView.reloadData()
+                    }
                 }
             })
         }

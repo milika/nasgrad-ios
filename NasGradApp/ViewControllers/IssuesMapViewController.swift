@@ -1,18 +1,17 @@
 //
-//  SingleIssueMapViewController.swift
+//  IssuesMapViewController.swift
 //  NasGradApp
 //
-//  Created by Dorian Cizmar on 12/7/18.
+//  Created by Dorian Cizmar on 12/8/18.
 //  Copyright © 2018 NasGrad. All rights reserved.
 //
 
 import UIKit
 import GoogleMaps
 
-class SingleIssueMapViewController: BaseViewController {
+class IssuesMapViewController: BaseViewController {
 
-    // MARK: Outlets
-    @IBOutlet weak var singleMapView: GMSMapView!
+    @IBOutlet weak var allIssuesMapView: GMSMapView!
     @IBOutlet weak var infoContainerView: UIView!
     @IBOutlet weak var issueImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,30 +19,21 @@ class SingleIssueMapViewController: BaseViewController {
     @IBOutlet weak var category1Label: UILabel!
     @IBOutlet weak var category2Label: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var submittedNumberLabel: UILabel!
     @IBOutlet weak var stateView: UIView!
+    @IBOutlet weak var submittedNumberLabel: UILabel!
     
-    // MARK: Properties
-    var issueIndex: Int?
-    var issueListService: IssueListServiceProtocol?
+    var allIssuesMapService: IssueListServiceProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Prikaz na mapi"
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fillData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let index = self.issueIndex, let coordinate = self.issueListService?.getSingleMapIssueData(forIndex: index).location {
-            self.zoomToLocation(coordinate)
+        if let issueListViewController = (tabBarController?.viewControllers?.object(atIndex: 0) as! UINavigationController).viewControllers.object(atIndex: 0) as? IssueListViewController {
+            self.allIssuesMapService = issueListViewController.issueListService
         }
-        
-        Theme.shared.dropShadow(forView: infoContainerView)
+        addPinsToMap()
     }
     
     override func applyTheme() {
@@ -65,12 +55,34 @@ class SingleIssueMapViewController: BaseViewController {
     
     override func prepareComponents() {
         super.prepareComponents()
-        self.category2Label.isHidden = issueListService?.isSecondCategoryVisible(forId: issueIndex ?? 0) ?? false
+        allIssuesMapView.delegate = self
+        self.infoContainerView.alpha = 0
     }
+    
+    private func addPinsToMap() {
+        allIssuesMapService?.getAllLocations().forEach({ location in
+            addPinToMap(forCoordinate: location.0, title: "", id: location.1)
+        })
+    }
+    
+    private func addPinToMap(forCoordinate: CLLocationCoordinate2D, title: String, id: String = "") {
+        let marker = GMSMarker(position: forCoordinate)
+        marker.title = title
+        marker.userData = id
+        marker.map = allIssuesMapView
+    }
+    
+    private func zoomToLocation(_ location: CLLocationCoordinate2D) {
+        CATransaction.begin()
+        CATransaction.setValue(1, forKey: kCATransactionAnimationDuration)
+        let camera = GMSCameraPosition.camera(withLatitude:location.latitude, longitude: location.longitude, zoom: 25)
+        allIssuesMapView.animate(to: camera)
+        CATransaction.commit()
+    }
+    
+    private func fillData(forIssueIdentifier: String) {
 
-    private func fillData() {
-        if let index = issueIndex {
-            let singleIssueViewData = issueListService?.getSingleMapIssueData(forIndex: index)
+            let singleIssueViewData = allIssuesMapService?.getMapIssueData(forIdentifier: forIssueIdentifier)
             issueImageView.image = singleIssueViewData?.previewImage
             titleLabel.text = singleIssueViewData?.title
             descriptionLabel.text = singleIssueViewData?.description
@@ -83,30 +95,24 @@ class SingleIssueMapViewController: BaseViewController {
             if let location = singleIssueViewData?.location {
                 addPinToMap(forCoordinate: location, title: "")
             }
+    }
+    
+}
+
+extension IssuesMapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if let id = marker.userData as? String {
+            fillData(forIssueIdentifier: id)
+            UIView.animate(withDuration: 1) {
+                self.infoContainerView.alpha = 1
+            }
+        }
+        return true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        UIView.animate(withDuration: 1) {
+            self.infoContainerView.alpha = 0
         }
     }
-    
-    private func setupGoogleMapCamera() {
-        if let index = issueIndex, let location = issueListService?.getSingleMapIssueData(forIndex: index).location {
-            let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15)
-            singleMapView.camera = camera
-            singleMapView.mapType = GMSMapViewType.satellite
-            singleMapView.isMyLocationEnabled = true
-        }
-    }
-    
-    private func addPinToMap(forCoordinate: CLLocationCoordinate2D, title: String) {
-        let marker = GMSMarker(position: forCoordinate)
-        marker.title = title
-        marker.map = singleMapView
-    }
-    
-    private func zoomToLocation(_ location: CLLocationCoordinate2D) {
-        CATransaction.begin()
-        CATransaction.setValue(1, forKey: kCATransactionAnimationDuration)
-        let camera = GMSCameraPosition.camera(withLatitude:location.latitude, longitude: location.longitude, zoom: 25)
-        singleMapView.animate(to: camera)
-        CATransaction.commit()
-    }
-    
 }

@@ -31,6 +31,8 @@
 		ED568A3D21BAA85800DEE28C /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3C21BAA85800DEE28C /* DependencyInjectionContainer.swift */; };
 		ED568A3F21BAAC0500DEE28C /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A3E21BAAC0500DEE28C /* LoaderViewController.swift */; };
 		ED568A4221BAACF800DEE28C /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A4121BAACF800DEE28C /* LoaderManager.swift */; };
+		ED99194721BB43C5007C38A3 /* IssuesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99194621BB43C5007C38A3 /* IssuesMapViewController.swift */; };
+		ED99194921BB4F77007C38A3 /* IssueListServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99194821BB4F77007C38A3 /* IssueListServiceMock.swift */; };
 		EDEF2C0B21BAB068001982AC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF2C0921BAB068001982AC /* Location.swift */; };
 		EDEF2C0C21BAB068001982AC /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF2C0A21BAB068001982AC /* Issue.swift */; };
 		EDF849CE21B9800E00B332C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF849CD21B9800E00B332C3 /* AppDelegate.swift */; };
@@ -79,6 +81,8 @@
 		ED568A3C21BAA85800DEE28C /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
 		ED568A3E21BAAC0500DEE28C /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		ED568A4121BAACF800DEE28C /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
+		ED99194621BB43C5007C38A3 /* IssuesMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesMapViewController.swift; sourceTree = "<group>"; };
+		ED99194821BB4F77007C38A3 /* IssueListServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListServiceMock.swift; sourceTree = "<group>"; };
 		EDEF2C0921BAB068001982AC /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EDEF2C0A21BAB068001982AC /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		EDEF2C0F21BAB19D001982AC /* nasgrad-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "nasgrad-release.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				ED568A3121BAA15500DEE28C /* IssueListViewController.swift */,
 				ED568A3E21BAAC0500DEE28C /* LoaderViewController.swift */,
 				ED21B09921BAE33200A7C5AB /* SingleIssueMapViewController.swift */,
+				ED99194621BB43C5007C38A3 /* IssuesMapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				ED568A3921BAA73B00DEE28C /* IssueListService.swift */,
+				ED99194821BB4F77007C38A3 /* IssueListServiceMock.swift */,
 			);
 			path = ServicesLayer;
 			sourceTree = "<group>";
@@ -517,6 +523,7 @@
 				ED568A4221BAACF800DEE28C /* LoaderManager.swift in Sources */,
 				ED568A2621BA9DBE00DEE28C /* NetworkEngine.swift in Sources */,
 				ED568A3F21BAAC0500DEE28C /* LoaderViewController.swift in Sources */,
+				ED99194921BB4F77007C38A3 /* IssueListServiceMock.swift in Sources */,
 				ED21B09E21BB1B7E00A7C5AB /* Array+Extension.swift in Sources */,
 				ED568A3621BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift in Sources */,
 				ED568A2E21BA9F0400DEE28C /* NetworkError.swift in Sources */,
@@ -524,6 +531,7 @@
 				ED568A3021BAA13C00DEE28C /* BaseViewController.swift in Sources */,
 				ED21B08C21BAB7BE00A7C5AB /* IssueTableViewCell.swift in Sources */,
 				ED21B09421BAC83F00A7C5AB /* Categories.swift in Sources */,
+				ED99194721BB43C5007C38A3 /* IssuesMapViewController.swift in Sources */,
 				ED21B09221BAC83F00A7C5AB /* TypesApi.swift in Sources */,
 				ED21B08E21BABC5B00A7C5AB /* Theme.swift in Sources */,
 			);
