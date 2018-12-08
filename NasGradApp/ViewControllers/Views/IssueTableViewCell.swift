@@ -37,6 +37,10 @@ class IssueTableViewCell: UITableViewCell {
         typeLabel.font = Theme.shared.smallFont
         submittedNumberLabel.font = Theme.shared.smallFont
         
+        category1Label.textColor = Theme.shared.baseLabelCardColor
+        category2Label.textColor = Theme.shared.baseLabelCardColor
+        submittedNumberLabel.textColor = Theme.shared.baseLabelCardColor
+
         issueImageView?.layer.cornerRadius = Theme.shared.baseCornerRadius
         category1Label.layer.cornerRadius = Theme.shared.baseCornerRadius
         category2Label.layer.cornerRadius = Theme.shared.baseCornerRadius
@@ -51,7 +55,7 @@ class IssueTableViewCell: UITableViewCell {
     // MARK: Public Api
     
     func setCategory1Label(withText: String?, color: UIColor?) {
-        self.category1Label.text = " \(withText!) "
+        self.category1Label.text = " \(withText ?? "") "
         self.category1Label.backgroundColor = color
         self.category2Label.isHidden = true
     }

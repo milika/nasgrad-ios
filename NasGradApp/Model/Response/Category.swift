@@ -12,17 +12,29 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct TypesApi : Codable {
-	let types : [Types]?
+struct Category : Codable {
+	let id : String?
+	let name : String?
+	let description : String?
+	let email : String?
+    let color : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case types = "types"
+		case id = "id"
+		case name = "name"
+		case description = "description"
+		case email = "email"
+        case color = "color"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		types = try values.decodeIfPresent([Types].self, forKey: .types)
+		id = try values.decodeIfPresent(String.self, forKey: .id)
+		name = try values.decodeIfPresent(String.self, forKey: .name)
+		description = try values.decodeIfPresent(String.self, forKey: .description)
+		email = try values.decodeIfPresent(String.self, forKey: .email)
+        color = try values.decodeIfPresent(String.self, forKey: .color)
 	}
 
 }

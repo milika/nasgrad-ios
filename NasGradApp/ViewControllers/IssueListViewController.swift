@@ -8,6 +8,7 @@
 
 import UIKit
 import CocoaLumberjack
+import MessageUI
 
 class IssueListViewController: BaseViewController {
 
@@ -19,7 +20,8 @@ class IssueListViewController: BaseViewController {
     
     let networkEngine: NetworkEngineProtocol = container.resolve(NetworkEngineProtocol.self)!
     let networkRequestEngine: NetworkRequestEngineProtocol = container.resolve(NetworkRequestEngineProtocol.self)!
-    let issueListService: IssueListServiceProtocol = container.resolve(IssueListServiceProtocol.self)!
+    var issueListService: IssueListServiceProtocol = container.resolve(IssueListServiceProtocol.self)!
+    let typeService: TypeServiceProtocol = container.resolve(TypeServiceProtocol.self)!
     
     private var selectedCellIndex: Int?
     
@@ -34,7 +36,10 @@ class IssueListViewController: BaseViewController {
         super.viewDidAppear(animated)
         self.title = "Svi problemi"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        fetchAllIssues()
+        fetchTypesAndCategories(withCompletionHandler: {
+            self.issueListService.typeService = self.typeService
+            self.fetchAllIssues()
+        })
     }
     
     // MARK: Parental methods
@@ -46,6 +51,10 @@ class IssueListViewController: BaseViewController {
     }
     
     // MARK: Style
+    override func applyTheme() {
+        super.applyTheme()
+        self.navigationController?.navigationBar.tintColor = Theme.shared.brandColor
+    }
     
     // MARK: Segue
     
@@ -79,6 +88,27 @@ class IssueListViewController: BaseViewController {
             })
         }
     }
+    
+    private func fetchTypesAndCategories(withCompletionHandler: @escaping () -> Void) {
+        let getTypesRequest = networkRequestEngine.getAllTypes()
+        let getCategoriesRequest = networkRequestEngine.getAllCategories()
+        
+        showLoader {
+            self.networkEngine.performNetworkRequest(forURLRequest: getTypesRequest, responseType: [Type].self, completionHandler: { (typesData, response, error) in
+                self.typeService.setTypeData(typesData)
+                DDLogVerbose(String(describing: typesData))
+                self.networkEngine.performNetworkRequest(forURLRequest: getCategoriesRequest, responseType: [Category].self, completionHandler: { (categoriesData, categoriesResponse, categoriesError) in
+                    DDLogVerbose("\(String(describing: categoriesData))")
+                    self.typeService.setCategoriesData(categoriesData)
+                    DispatchQueue.main.async {
+                        hideLoader {
+                            withCompletionHandler()
+                        }
+                    }
+                })
+            })
+        }
+    }
 
 }
 
@@ -96,12 +126,22 @@ extension IssueListViewController: UITableViewDelegate {
         map.backgroundColor = Theme.shared.editButtonMapColor
         
         let submit = UITableViewRowAction(style: .normal, title: NSLocalizedString(Constants.Localizable.editSubmit, comment: "")) { action, index in
-            DDLogDebug("Map action")
+            DDLogDebug("Submit issue action")
             self.selectedCellIndex = indexPath.row
+            
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setSubject("Prijavi problem")
+                mail.setMessageBody("Neki tekst", isHTML: true)
+                
+                self.present(mail, animated: true)
+            }
+            
         }
         submit.backgroundColor = Theme.shared.editButtonSubmitColor
         
-        return [map, submit]
+        return [submit, map]
     }
 }
 
@@ -127,7 +167,14 @@ extension IssueListViewController: UITableViewDataSource {
         cell?.setCategory2Label(withText: issueViewData.category2Title, color: issueViewData.category2Color)
         cell?.typeLabel.text = "Tip: \(issueViewData.type)"
         cell?.submittedNumberLabel.text = issueViewData.submittedNumber
+        cell?.stateView.backgroundColor = issueViewData.stateColor
         
         return cell!
+    }
+}
+
+extension IssueListViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
 }

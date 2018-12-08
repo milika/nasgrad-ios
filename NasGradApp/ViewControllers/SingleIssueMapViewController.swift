@@ -35,6 +35,7 @@ class SingleIssueMapViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fillData()
+        self.setupGoogleMapCamera()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,7 +66,7 @@ class SingleIssueMapViewController: BaseViewController {
     
     override func prepareComponents() {
         super.prepareComponents()
-        self.category2Label.isHidden = issueListService?.isSecondCategoryVisible(forId: issueIndex ?? 0) ?? false
+        self.category2Label.isHidden = !(issueListService?.isSecondCategoryVisible(forId: issueIndex ?? 0) ?? true)
     }
 
     private func fillData() {
@@ -75,11 +76,15 @@ class SingleIssueMapViewController: BaseViewController {
             titleLabel.text = singleIssueViewData?.title
             descriptionLabel.text = singleIssueViewData?.description
             category1Label.text = " \(singleIssueViewData?.category1Title ?? "") "
+            category1Label.textColor = Theme.shared.baseLabelCardColor
             category1Label.backgroundColor = singleIssueViewData?.category1Color
             category2Label.text = " \(singleIssueViewData?.category2Title ?? "") "
+            category2Label.textColor = Theme.shared.baseLabelCardColor
             category2Label.backgroundColor = singleIssueViewData?.category2Color
             typeLabel.text = singleIssueViewData?.type
             submittedNumberLabel.text = singleIssueViewData?.submittedNumber
+            submittedNumberLabel.textColor = Theme.shared.baseLabelCardColor
+            stateView.backgroundColor = singleIssueViewData?.stateColor
             if let location = singleIssueViewData?.location {
                 addPinToMap(forCoordinate: location, title: "")
             }
@@ -88,10 +93,8 @@ class SingleIssueMapViewController: BaseViewController {
     
     private func setupGoogleMapCamera() {
         if let index = issueIndex, let location = issueListService?.getSingleMapIssueData(forIndex: index).location {
-            let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15)
+            let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 10)
             singleMapView.camera = camera
-            singleMapView.mapType = GMSMapViewType.satellite
-            singleMapView.isMyLocationEnabled = true
         }
     }
     
@@ -103,8 +106,8 @@ class SingleIssueMapViewController: BaseViewController {
     
     private func zoomToLocation(_ location: CLLocationCoordinate2D) {
         CATransaction.begin()
-        CATransaction.setValue(1, forKey: kCATransactionAnimationDuration)
-        let camera = GMSCameraPosition.camera(withLatitude:location.latitude, longitude: location.longitude, zoom: 25)
+        CATransaction.setValue(2, forKey: kCATransactionAnimationDuration)
+        let camera = GMSCameraPosition.camera(withLatitude:location.latitude, longitude: location.longitude, zoom: 15)
         singleMapView.animate(to: camera)
         CATransaction.commit()
     }

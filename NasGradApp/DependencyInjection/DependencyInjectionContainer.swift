@@ -29,5 +29,9 @@ var container: Container {
         return IssueListService()
     }
     
+    container.register(TypeServiceProtocol.self) { _ in
+        return TypeService()
+    }
+    
     return container
 }

@@ -26,6 +26,7 @@ class IssuesMapViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +34,7 @@ class IssuesMapViewController: BaseViewController {
         if let issueListViewController = (tabBarController?.viewControllers?.object(atIndex: 0) as! UINavigationController).viewControllers.object(atIndex: 0) as? IssueListViewController {
             self.allIssuesMapService = issueListViewController.issueListService
         }
+        allIssuesMapView.clear()
         addPinsToMap()
     }
     
@@ -57,6 +59,7 @@ class IssuesMapViewController: BaseViewController {
         super.prepareComponents()
         allIssuesMapView.delegate = self
         self.infoContainerView.alpha = 0
+        setupGoogleMapCamera()
     }
     
     private func addPinsToMap() {
@@ -80,6 +83,11 @@ class IssuesMapViewController: BaseViewController {
         CATransaction.commit()
     }
     
+    private func setupGoogleMapCamera() {
+        let camera = GMSCameraPosition.camera(withLatitude: Constants.serbiaCenterLatitude, longitude: Constants.serbiaCenterLongitude, zoom: 7)
+        allIssuesMapView.camera = camera
+    }
+    
     private func fillData(forIssueIdentifier: String) {
 
             let singleIssueViewData = allIssuesMapService?.getMapIssueData(forIdentifier: forIssueIdentifier)
@@ -87,11 +95,15 @@ class IssuesMapViewController: BaseViewController {
             titleLabel.text = singleIssueViewData?.title
             descriptionLabel.text = singleIssueViewData?.description
             category1Label.text = " \(singleIssueViewData?.category1Title ?? "") "
+            category1Label.textColor = Theme.shared.baseLabelCardColor
             category1Label.backgroundColor = singleIssueViewData?.category1Color
             category2Label.text = " \(singleIssueViewData?.category2Title ?? "") "
+            category2Label.textColor = Theme.shared.baseLabelCardColor
             category2Label.backgroundColor = singleIssueViewData?.category2Color
             typeLabel.text = singleIssueViewData?.type
             submittedNumberLabel.text = singleIssueViewData?.submittedNumber
+            submittedNumberLabel.textColor = Theme.shared.baseLabelCardColor
+            stateView.backgroundColor = singleIssueViewData?.stateColor
             if let location = singleIssueViewData?.location {
                 addPinToMap(forCoordinate: location, title: "")
             }

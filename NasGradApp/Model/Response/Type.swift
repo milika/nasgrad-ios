@@ -12,11 +12,11 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Types : Codable {
+struct Type : Codable {
 	let id : String?
 	let name : String?
 	let description : String?
-	let categories : [Categories]?
+	let categories : [String]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -31,7 +31,7 @@ struct Types : Codable {
 		id = try values.decodeIfPresent(String.self, forKey: .id)
 		name = try values.decodeIfPresent(String.self, forKey: .name)
 		description = try values.decodeIfPresent(String.self, forKey: .description)
-		categories = try values.decodeIfPresent([Categories].self, forKey: .categories)
+		categories = try values.decodeIfPresent([String].self, forKey: .categories)
 	}
 
 }

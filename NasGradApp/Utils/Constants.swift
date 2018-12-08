@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum Environment: String {
     case release = "RELEASE"
@@ -15,6 +16,9 @@ enum Environment: String {
 struct Constants {
     
     static let googleMapsApiKey = ""
+    
+    static let serbiaCenterLatitude = 44.216522
+    static let serbiaCenterLongitude = 20.883249
     
     struct Storyboard {
         static let storyboardName = "Main"
@@ -38,7 +42,8 @@ struct Constants {
         static let apiUrl = infoForKey("Api Url")!
         
         static let getAllIssues = apiUrl + "/getissuelist"
-        static let getAllTypes = apiUrl + "/types"
+        static let getAllTypes = apiUrl + "/Configuration"
+        static let getAllCategories = apiUrl + "/Category"
     }
     
     static let environment = Environment(rawValue: infoForKey("Environment") ?? "RELEASE") ?? .release
