@@ -65,6 +65,10 @@ class IssueListViewController: BaseViewController {
                     mapViewController.issueIndex = self.selectedCellIndex
                     mapViewController.issueListService = self.issueListService
                 }
+            } else if segueId == Constants.Segue.showIssueDetailsSegue {
+                if let detailsViewController = segue.destination as? IssueDetailsViewController {
+                    detailsViewController.detailsService.typeService = self.typeService
+                }
             }
         }
     }
@@ -142,6 +146,10 @@ extension IssueListViewController: UITableViewDelegate {
         submit.backgroundColor = Theme.shared.editButtonSubmitColor
         
         return [submit, map]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: Constants.Segue.showIssueDetailsSegue, sender: nil)
     }
 }
 

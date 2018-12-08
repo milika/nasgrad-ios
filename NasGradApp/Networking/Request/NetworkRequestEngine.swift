@@ -31,6 +31,11 @@ class NetworkRequestEngine: NetworkRequestEngineProtocol {
         return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
     }
     
+    func getIssueDetailsById(_ byId: String) -> URLRequest {
+        let endpointURL = URL(string: Constants.API.getIssueDetailsById + "/\(byId)")!
+        return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
+    }
+    
     private func createRequestWithUrl(_ url: URL, httpMethod: String, params: Dictionary<String, AnyObject>?) -> URLRequest? {
         var urlRequest = URLRequest(url: url)
         
