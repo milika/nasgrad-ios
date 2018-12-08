@@ -21,6 +21,7 @@ class IssueDetailsViewController: BaseViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
     
     let networkEngine: NetworkEngineProtocol = container.resolve(NetworkEngineProtocol.self)!
     let networkRequestEngine: NetworkRequestEngineProtocol = container.resolve(NetworkRequestEngineProtocol.self)!
@@ -30,6 +31,7 @@ class IssueDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationButton.isHidden = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -72,8 +74,7 @@ class IssueDetailsViewController: BaseViewController {
             category2Label.text = viewData.category2Title
             category1Label.backgroundColor = viewData.category1Color
             category2Label.backgroundColor = viewData.category2Color
-            locationLabel.text = "Adresa: \(viewData.address ?? "")"
-            descriptionLabel.text = viewData.description
+            descriptionLabel.text = "Opis: \(viewData.description ?? "")"
         }
     }
     
@@ -100,11 +101,18 @@ class IssueDetailsViewController: BaseViewController {
             showLoader {
                 self.networkEngine.performNetworkRequest(forURLRequest: issueDetailsRequest, responseType: Issue.self) { (detailsData, response, error) in
                     self.detailsService.setData(detailsData)
-                    DispatchQueue.main.async {
-                        hideLoader {
-                            self.fillData()
+                    
+                    AddressManager.shared.getAddressFromLatLon(pdblLatitude: "\(self.detailsService.getViewData()?.location?.latitude ?? -1)", withLongitude: "\(self.detailsService.getViewData()?.location?.longitude ?? -1)", completion: { (address) in
+                        DispatchQueue.main.async {
+                            self.locationLabel.text = "Adresa: \(address)"
+                            if address == "" {
+                                self.locationLabel.text = "Adresa: Nedostupno"
+                            }
+                            hideLoader {
+                                self.fillData()
+                            }
                         }
-                    }
+                    })
                 }
             }
         }

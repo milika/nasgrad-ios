@@ -32,6 +32,7 @@
 		ED568A4221BAACF800DEE28C /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED568A4121BAACF800DEE28C /* LoaderManager.swift */; };
 		ED57AB2B21BB90E900CB6031 /* IssueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED57AB2A21BB90E900CB6031 /* IssueDetailsViewController.swift */; };
 		ED57AB2D21BB9B3500CB6031 /* IssueDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED57AB2C21BB9B3500CB6031 /* IssueDetailsService.swift */; };
+		ED57AB2F21BBC87000CB6031 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED57AB2E21BBC87000CB6031 /* AddressManager.swift */; };
 		ED99194721BB43C5007C38A3 /* IssuesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99194621BB43C5007C38A3 /* IssuesMapViewController.swift */; };
 		ED99194921BB4F77007C38A3 /* IssueListServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99194821BB4F77007C38A3 /* IssueListServiceMock.swift */; };
 		EDEF2C0B21BAB068001982AC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF2C0921BAB068001982AC /* Location.swift */; };
@@ -83,6 +84,7 @@
 		ED568A4121BAACF800DEE28C /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		ED57AB2A21BB90E900CB6031 /* IssueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewController.swift; sourceTree = "<group>"; };
 		ED57AB2C21BB9B3500CB6031 /* IssueDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailsService.swift; sourceTree = "<group>"; };
+		ED57AB2E21BBC87000CB6031 /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
 		ED99194621BB43C5007C38A3 /* IssuesMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesMapViewController.swift; sourceTree = "<group>"; };
 		ED99194821BB4F77007C38A3 /* IssueListServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListServiceMock.swift; sourceTree = "<group>"; };
 		EDEF2C0921BAB068001982AC /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				ED568A4121BAACF800DEE28C /* LoaderManager.swift */,
+				ED57AB2E21BBC87000CB6031 /* AddressManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				ED568A4221BAACF800DEE28C /* LoaderManager.swift in Sources */,
 				ED568A2621BA9DBE00DEE28C /* NetworkEngine.swift in Sources */,
 				ED568A3F21BAAC0500DEE28C /* LoaderViewController.swift in Sources */,
+				ED57AB2F21BBC87000CB6031 /* AddressManager.swift in Sources */,
 				ED99194921BB4F77007C38A3 /* IssueListServiceMock.swift in Sources */,
 				ED21B09E21BB1B7E00A7C5AB /* Array+Extension.swift in Sources */,
 				ED568A3621BAA38C00DEE28C /* NetworkRequestEngineProtocol.swift in Sources */,
