@@ -33,5 +33,9 @@ var container: Container {
         return TypeService()
     }
     
+    container.register(IssueDetailsServiceProtocol.self) { _ in
+        return IssueDetailsService()
+    }
+    
     return container
 }

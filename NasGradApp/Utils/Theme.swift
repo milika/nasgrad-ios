@@ -18,7 +18,7 @@ class Theme {
     let mapInfoViewBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     let submittedColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-    let reportedColor = #colorLiteral(red: 1, green: 0.4666089416, blue: 0, alpha: 1)
+    let reportedColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 0.8069513494)
     let doneColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
     
     let baseFont = UIFont(name: "Helvetica", size: 18)

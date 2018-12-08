@@ -30,6 +30,7 @@ struct Constants {
     struct Segue {
         static let showIssueListSegue = "showIssueListSegue"
         static let showSingleMapSegue = "showSingleMapSegue"
+        static let showIssueDetailsSegue = "showIssueDetailsSegue"
     }
     
     struct Localizable {
@@ -44,6 +45,7 @@ struct Constants {
         static let getAllIssues = apiUrl + "/getissuelist"
         static let getAllTypes = apiUrl + "/Configuration"
         static let getAllCategories = apiUrl + "/Category"
+        static let getIssueDetailsById = apiUrl + "/GetIssueList/GetIssueDetails"
     }
     
     static let environment = Environment(rawValue: infoForKey("Environment") ?? "RELEASE") ?? .release

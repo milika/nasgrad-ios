@@ -12,4 +12,5 @@ protocol NetworkRequestEngineProtocol {
     func getAllIssues() -> URLRequest
     func getAllTypes() -> URLRequest
     func getAllCategories() -> URLRequest
+    func getIssueDetailsById(_ byId: String) -> URLRequest
 }
