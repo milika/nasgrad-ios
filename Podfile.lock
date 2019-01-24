@@ -1,0 +1,39 @@
+PODS:
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Swift (3.4.2):
+    - CocoaLumberjack/Default
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - Swinject (2.5.0)
+
+DEPENDENCIES:
+  - CocoaLumberjack/Swift
+  - Crashlytics
+  - Fabric (~> 1.9)
+  - GoogleMaps
+  - Swinject (~> 2.5)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaLumberjack
+    - Crashlytics
+    - Fabric
+    - GoogleMaps
+    - Swinject
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+
+PODFILE CHECKSUM: b4ea0b1c3eda1158f57706f773173c12e58b33ba
+
+COCOAPODS: 1.5.3
