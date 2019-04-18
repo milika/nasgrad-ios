@@ -176,16 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				EDEF2C0E21BAB096001982AC /* Response */,
-				EDEF2C0D21BAB08A001982AC /* Request */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		EDEF2C0D21BAB08A001982AC /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		EDEF2C0E21BAB096001982AC /* Response */ = {
@@ -228,7 +220,6 @@
 				EDF849EE21B9808500B332C3 /* ServicesLayer */,
 				ED568A3B21BAA84300DEE28C /* DependencyInjection */,
 				ED568A4021BAACA700DEE28C /* Helpers */,
-				EDF849F121B980A700B332C3 /* DatabaseLayer */,
 				EDF849F021B9809D00B332C3 /* Utils */,
 				EDF849F221B980CA00B332C3 /* Supporting Files */,
 				EDF849CD21B9800E00B332C3 /* AppDelegate.swift */,
@@ -290,13 +281,6 @@
 				ED21B09F21BB1F4600A7C5AB /* Utils.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		EDF849F121B980A700B332C3 /* DatabaseLayer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DatabaseLayer;
 			sourceTree = "<group>";
 		};
 		EDF849F221B980CA00B332C3 /* Supporting Files */ = {

@@ -16,9 +16,15 @@ class LoaderViewController: UIViewController {
         loaderIndicator.startAnimating()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //view.backgroundColor = .clear
+           loaderIndicator.stopAnimating()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        loaderIndicator.stopAnimating()
+     
     }
     
 }

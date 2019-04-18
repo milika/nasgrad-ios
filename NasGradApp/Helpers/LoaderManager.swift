@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 func showLoader(_ completion:@escaping() -> Void) {
     if var topController = UIApplication.shared.keyWindow?.rootViewController {
         while let presentedViewController = topController.presentedViewController {
@@ -25,6 +26,7 @@ func showLoader(_ completion:@escaping() -> Void) {
 }
 
 func hideLoader(_ completion: @escaping() -> Void) {
+   
     if var topController = UIApplication.shared.keyWindow?.rootViewController {
         while let presentedViewController = topController.presentedViewController {
             topController = presentedViewController
@@ -33,4 +35,5 @@ func hideLoader(_ completion: @escaping() -> Void) {
             completion()
         }
     }
+ 
 }
