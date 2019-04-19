@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		32830396BE19B51508F7F381 /* Pods_NasGradAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57030D874D65DDABC3470373 /* Pods_NasGradAppTests.framework */; };
 		742544E222B3B60FC3342849 /* Pods_NasGradApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7D54B6E2CCEB81BF1FB38B /* Pods_NasGradApp.framework */; };
+		9AE92386226A298300C9039E /* AddIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE92385226A298300C9039E /* AddIssueViewController.swift */; };
 		ED17B2D221BB5EF000806C4F /* TypeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B2D121BB5EF000806C4F /* TypeService.swift */; };
 		ED21B08C21BAB7BE00A7C5AB /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B08B21BAB7BE00A7C5AB /* IssueTableViewCell.swift */; };
 		ED21B08E21BABC5B00A7C5AB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21B08D21BABC5B00A7C5AB /* Theme.swift */; };
@@ -59,6 +60,7 @@
 		3A0CD7C0C9068225BCF28221 /* Pods-NasGradApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp.debug.xcconfig"; sourceTree = "<group>"; };
 		57030D874D65DDABC3470373 /* Pods_NasGradAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasGradAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BC6BEFF440B4AA63DB4497 /* Pods-NasGradApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradApp/Pods-NasGradApp.release.xcconfig"; sourceTree = "<group>"; };
+		9AE92385226A298300C9039E /* AddIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIssueViewController.swift; sourceTree = "<group>"; };
 		C7A04B0FFE782BECF974D3E5 /* Pods-NasGradAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasGradAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NasGradAppTests/Pods-NasGradAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB7D54B6E2CCEB81BF1FB38B /* Pods_NasGradApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasGradApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED17B2D121BB5EF000806C4F /* TypeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeService.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				ED21B09921BAE33200A7C5AB /* SingleIssueMapViewController.swift */,
 				ED99194621BB43C5007C38A3 /* IssuesMapViewController.swift */,
 				ED57AB2A21BB90E900CB6031 /* IssueDetailsViewController.swift */,
+				9AE92385226A298300C9039E /* AddIssueViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				ED568A2C21BA9EF600DEE28C /* NetworkEngineProtocol.swift in Sources */,
 				EDF849CE21B9800E00B332C3 /* AppDelegate.swift in Sources */,
 				ED568A2421BA9A2700DEE28C /* Constants.swift in Sources */,
+				9AE92386226A298300C9039E /* AddIssueViewController.swift in Sources */,
 				ED568A3A21BAA73B00DEE28C /* IssueListService.swift in Sources */,
 				ED21B09321BAC83F00A7C5AB /* Type.swift in Sources */,
 				ED21B0A021BB1F4600A7C5AB /* Utils.swift in Sources */,
