@@ -35,10 +35,20 @@ class AddressManager {
                     let pm = placemarks![0]
                     var addressString : String = ""
                     if pm.thoroughfare != nil {
-                        addressString = addressString + pm.thoroughfare! + ", "
+                        addressString = addressString + pm.thoroughfare!
+                        
+                        if pm.subThoroughfare != nil {
+                            addressString = addressString + " " + pm.subThoroughfare!
+                        }
+                        
+                            addressString = addressString + ", "
                     }
                     if pm.locality != nil {
                         addressString = addressString + pm.locality! + ", "
+                    }
+                    
+                    if (addressString.hasSuffix(", ")) {
+                        addressString.removeLast(2)
                     }
                     
                     completion(addressString)

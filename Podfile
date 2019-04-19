@@ -11,6 +11,9 @@ target 'NasGradApp' do
     pod 'Crashlytics'
 	pod 'CocoaLumberjack/Swift'
 	pod 'GoogleMaps'
+    pod 'IQKeyboardManagerSwift'
+    pod 'KMPlaceholderTextView'
+    
 
   target 'NasGradAppTests' do
     inherit! :search_paths

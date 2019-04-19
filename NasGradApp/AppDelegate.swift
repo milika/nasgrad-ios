@@ -13,6 +13,8 @@ import Crashlytics
 import GoogleMaps
 import CocoaLumberjack
 
+import IQKeyboardManagerSwift
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -27,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
 
+        
+         IQKeyboardManager.shared.enable = true
         
         return true
     }

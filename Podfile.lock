@@ -10,6 +10,8 @@ PODS:
   - GoogleMaps/Base (2.7.0)
   - GoogleMaps/Maps (2.7.0):
     - GoogleMaps/Base
+  - IQKeyboardManagerSwift (6.2.0)
+  - KMPlaceholderTextView (1.4.0)
   - Swinject (2.5.0)
 
 DEPENDENCIES:
@@ -17,6 +19,8 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric (~> 1.9)
   - GoogleMaps
+  - IQKeyboardManagerSwift
+  - KMPlaceholderTextView
   - Swinject (~> 2.5)
 
 SPEC REPOS:
@@ -25,6 +29,8 @@ SPEC REPOS:
     - Crashlytics
     - Fabric
     - GoogleMaps
+    - IQKeyboardManagerSwift
+    - KMPlaceholderTextView
     - Swinject
 
 SPEC CHECKSUMS:
@@ -32,8 +38,10 @@ SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
 
-PODFILE CHECKSUM: b4ea0b1c3eda1158f57706f773173c12e58b33ba
+PODFILE CHECKSUM: 6f94e6facdb5623242c075eeaf467d37c32368ce
 
 COCOAPODS: 1.5.3
