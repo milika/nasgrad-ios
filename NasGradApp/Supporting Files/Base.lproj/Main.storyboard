@@ -148,35 +148,38 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="892"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0xp-eW-kSu">
-                                        <rect key="frame" x="71" y="65" width="233" height="165"/>
+                                        <rect key="frame" x="71" y="64.5" width="233" height="165"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="165" id="zim-af-Yqg"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesite slike problema (1/3)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnu-cM-VQM">
-                                        <rect key="frame" x="81" y="20" width="213" height="21"/>
+                                        <rect key="frame" x="81" y="20" width="213" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adresa na kojoj se nalazi problem (2/3)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9b-j7-bCc">
-                                        <rect key="frame" x="39" y="313" width="297" height="21"/>
+                                        <rect key="frame" x="39" y="312.5" width="297" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="e5i-Tb-K37">
-                                        <rect key="frame" x="168" y="238" width="39" height="37"/>
+                                        <rect key="frame" x="168" y="237.5" width="39" height="37"/>
                                         <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFI-yX-t5I">
-                                        <rect key="frame" x="148" y="275" width="79" height="30"/>
+                                        <rect key="frame" x="148" y="274.5" width="79" height="30"/>
                                         <state key="normal" title="add picture"/>
+                                        <connections>
+                                            <action selector="addImage" destination="OVd-ki-7Wg" eventType="touchUpInside" id="sKs-sD-CjS"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjt-nd-zQR" customClass="GMSMapView">
-                                        <rect key="frame" x="35" y="334" width="305" height="250"/>
+                                        <rect key="frame" x="35" y="333.5" width="305" height="250"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="oUc-oG-YR2"/>
@@ -212,24 +215,33 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-5W-elH">
-                                        <rect key="frame" x="312" y="132.5" width="30" height="30"/>
+                                        <rect key="frame" x="312" y="132" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="nwz-nY-3W1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <state key="normal" title="&gt;"/>
+                                        <connections>
+                                            <action selector="nextImage" destination="OVd-ki-7Wg" eventType="touchUpInside" id="0hp-zZ-wLp"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PX-NR-VBk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PX-NR-VBk">
                                         <rect key="frame" x="33" y="132" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="XFa-TA-8Ub"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <state key="normal" title="&lt;"/>
+                                        <connections>
+                                            <action selector="previousImage" destination="OVd-ki-7Wg" eventType="touchUpInside" id="tsj-58-MIj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uET-oD-jKR">
-                                        <rect key="frame" x="274" y="65" width="30" height="30"/>
+                                        <rect key="frame" x="274" y="64.5" width="30" height="30"/>
                                         <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="deleteImage" destination="OVd-ki-7Wg" eventType="touchUpInside" id="2Gn-4n-DJP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -239,6 +251,7 @@
                                     <constraint firstItem="0Ch-5W-elH" firstAttribute="centerY" secondItem="0xp-eW-kSu" secondAttribute="centerY" id="6jd-XQ-aG6"/>
                                     <constraint firstItem="0xp-eW-kSu" firstAttribute="trailing" secondItem="EsG-Ob-mNm" secondAttribute="trailing" constant="-71" id="91y-Uh-LbS"/>
                                     <constraint firstItem="e5i-Tb-K37" firstAttribute="top" secondItem="0xp-eW-kSu" secondAttribute="bottom" constant="8" symbolic="YES" id="A8e-dq-T7T"/>
+                                    <constraint firstItem="8PX-NR-VBk" firstAttribute="trailing" secondItem="0xp-eW-kSu" secondAttribute="leading" id="Ffh-FG-TvO"/>
                                     <constraint firstItem="0xp-eW-kSu" firstAttribute="centerX" secondItem="EsG-Ob-mNm" secondAttribute="centerX" id="Hcc-Kg-Ud6"/>
                                     <constraint firstItem="e5i-Tb-K37" firstAttribute="centerX" secondItem="EsG-Ob-mNm" secondAttribute="centerX" id="Jmr-vZ-SZV"/>
                                     <constraint firstItem="wnu-cM-VQM" firstAttribute="centerX" secondItem="EsG-Ob-mNm" secondAttribute="centerX" id="MCS-6h-jDR"/>
@@ -251,7 +264,9 @@
                                     <constraint firstItem="X9b-j7-bCc" firstAttribute="centerX" secondItem="EsG-Ob-mNm" secondAttribute="centerX" id="gQj-kg-mKq"/>
                                     <constraint firstItem="uET-oD-jKR" firstAttribute="trailing" secondItem="0xp-eW-kSu" secondAttribute="trailing" id="gXb-Oo-kAK"/>
                                     <constraint firstItem="vYP-oi-mwJ" firstAttribute="top" secondItem="Rjt-nd-zQR" secondAttribute="bottom" constant="8" symbolic="YES" id="jgo-Td-BiC"/>
+                                    <constraint firstItem="0xp-eW-kSu" firstAttribute="leading" secondItem="8PX-NR-VBk" secondAttribute="trailing" constant="8" symbolic="YES" id="nYd-EG-J7c"/>
                                     <constraint firstItem="X9b-j7-bCc" firstAttribute="top" secondItem="QFI-yX-t5I" secondAttribute="bottom" constant="8" symbolic="YES" id="oZ9-Zh-uDh"/>
+                                    <constraint firstItem="8PX-NR-VBk" firstAttribute="centerY" secondItem="0xp-eW-kSu" secondAttribute="centerY" id="pGr-nK-PQU"/>
                                     <constraint firstItem="uET-oD-jKR" firstAttribute="top" secondItem="0xp-eW-kSu" secondAttribute="top" id="pj7-iu-Eso"/>
                                     <constraint firstItem="0xp-eW-kSu" firstAttribute="top" secondItem="wnu-cM-VQM" secondAttribute="bottom" constant="24" id="pzj-ZI-yYF"/>
                                     <constraint firstItem="QFI-yX-t5I" firstAttribute="top" secondItem="e5i-Tb-K37" secondAttribute="bottom" id="qxk-EU-c2o"/>
@@ -282,7 +297,9 @@
                         <outlet property="imageAdd" destination="QFI-yX-t5I" id="qLr-1p-8DM"/>
                         <outlet property="imageDelete" destination="uET-oD-jKR" id="kFM-Kj-uvl"/>
                         <outlet property="imageNext" destination="0Ch-5W-elH" id="TUZ-dz-Cbw"/>
+                        <outlet property="imagePageControl" destination="e5i-Tb-K37" id="mPi-5j-och"/>
                         <outlet property="imagePrevious" destination="8PX-NR-VBk" id="1zd-UL-PWn"/>
+                        <outlet property="imageView" destination="0xp-eW-kSu" id="NJF-3n-Umz"/>
                         <outlet property="mainScrollView" destination="EsG-Ob-mNm" id="gvv-uS-bmO"/>
                         <outlet property="mapView" destination="Rjt-nd-zQR" id="Aat-Gx-Htx"/>
                     </connections>

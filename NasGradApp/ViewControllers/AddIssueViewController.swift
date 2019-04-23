@@ -13,7 +13,7 @@ import GoogleMaps
 import MapKit
 import CoreLocation
 
-class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     
@@ -24,6 +24,8 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
     @IBOutlet weak var imagePrevious: UIButton!
     @IBOutlet weak var imageDelete: UIButton!
     @IBOutlet weak var imageAdd: UIButton!
+     @IBOutlet weak var imagePageControl: UIPageControl!
+        @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var adressLabel: UILabel!
     
@@ -31,6 +33,9 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
     
     let locationManager = CLLocationManager()
     var lStartLocation:Bool = false
+    
+    var images = [UIImage]()
+    var currentImageIndex:Int = 0
     
     override func viewDidAppear(_ animated: Bool) {
         var contentRect = CGRect.zero
@@ -57,6 +62,8 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        
+        displayImages()
         
     }
     
@@ -93,4 +100,95 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
             }
         })
     }
+    
+    // MARK: - Images Handling
+    
+   @IBAction func addImage() {
+        let camera = DSCameraHandler(delegate_: self)
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = self.view
+        
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { (alert : UIAlertAction!) in
+            camera.getCameraOn(self, canEdit: true)
+        }
+        let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (alert : UIAlertAction!) in
+            camera.getPhotoLibraryOn(self, canEdit: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
+        }
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
+        
+        // image is our desired image
+            images.append(image)
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        displayImages()
+    
+    }
+    
+    @IBAction func nextImage() {
+        currentImageIndex += 1
+                displayImages()
+    }
+    
+    @IBAction func previousImage() {
+        currentImageIndex -= 1
+        displayImages()
+    }
+    
+    @IBAction func deleteImage() {
+        images.remove(at: currentImageIndex)
+        displayImages()
+    }
+
+    
+    func displayImages() {
+   
+        if (images.count > 0) {
+            if (currentImageIndex >= images.count) {
+                currentImageIndex = images.count-1
+            }
+            if (currentImageIndex < 0) {
+                currentImageIndex = 0
+            }
+            
+            
+            imagePageControl.currentPage = currentImageIndex;
+            imagePageControl.numberOfPages = images.count;
+            imagePageControl.isEnabled = false;
+            
+            imageView.image = images[currentImageIndex];
+            
+            imageNext.isEnabled = currentImageIndex < (images.count-1)
+            imagePrevious.isEnabled = currentImageIndex > 0
+            imageDelete.isEnabled = true
+            
+          
+      
+        } else {
+            // no images
+            currentImageIndex = 0;
+            imageView.image = nil;
+            imageNext.isEnabled = false
+            imagePrevious.isEnabled = false
+            imageDelete.isEnabled = false
+            imagePageControl.currentPage = currentImageIndex;
+            imagePageControl.numberOfPages = 1;
+            imagePageControl.isEnabled = false;
+        }
+    }
+  
 }
