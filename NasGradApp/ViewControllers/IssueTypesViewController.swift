@@ -26,6 +26,9 @@ class IssueTypesViewController: UITableViewController {
     struct Segment {
         var name: String = ""
         var types = [String]()
+        
+        var serviceData:Type? = nil
+        var issuesData:[Type] = [Type]()
     }
     
     var tableData = [Segment]()
@@ -54,11 +57,67 @@ class IssueTypesViewController: UITableViewController {
         // prepare all the data needed with current region
         tableData.removeAll()
         
+        region = "Novi Sad"
+        
+        // find region data form region
+        var selRegionData:Type? = nil
+        for regionData in regionsData {
+            if regionData.city == region {
+                selRegionData = regionData
+                break
+            }
+        }
+        
+        
+        if selRegionData != nil {
+            
+            // filter services
+            //var selServicesData = [Type]()
+              for cityServiceData in cityServicesData {
+                if cityServiceData.region == selRegionData?.id {
+                    //selServicesData.append(cityServiceData)
+                     var seg:Segment = Segment()
+                    seg.name = cityServiceData.name!
+                    seg.serviceData = cityServiceData
+                     tableData.append(seg)
+                }
+            }
+            
+            if tableData.count > 0 {
+                // get all issues for all city services gathered
+                for i in 0..<tableData.count {
+                   
+                    for cityServiceTypeData in cityServiceTypesData {
+                        if tableData[i].serviceData?.id == cityServiceTypeData.cityService {
+                            tableData[i].issuesData.append(cityServiceTypeData)
+                        }
+                    }
+                }
+                
+                // now transfer gathered data to strings
+                 for i in 0..<tableData.count {
+                    for issueData in tableData[i].issuesData {
+                        tableData[i].types.append("?")
+                        
+                        for typeData in typesData {
+                            if issueData.type == typeData.id  {
+                                if typeData.name != nil {
+                                    tableData[i].types[tableData[i].types.count-1] = typeData.name!
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        /*
         var seg:Segment = Segment()
         seg.name = "Seg 1"
         seg.types.append("type1")
         tableData.append(seg)
-        
+        */
         
         self.tableView.reloadData()
     }

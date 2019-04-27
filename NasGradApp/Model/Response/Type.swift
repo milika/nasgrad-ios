@@ -17,6 +17,12 @@ struct Type : Codable {
 	let name : String?
 	let description : String?
 	let categories : [String]?
+    let city : String?
+     let region : String?
+     let cityService : String?
+     let type : String?
+    
+    
 
 	enum CodingKeys: String, CodingKey {
 
@@ -24,6 +30,10 @@ struct Type : Codable {
 		case name = "name"
 		case description = "description"
 		case categories = "categories"
+        case city = "city"
+        case region = "region"
+         case cityService = "cityService"
+         case type = "type"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -32,6 +42,10 @@ struct Type : Codable {
 		name = try values.decodeIfPresent(String.self, forKey: .name)
 		description = try values.decodeIfPresent(String.self, forKey: .description)
 		categories = try values.decodeIfPresent([String].self, forKey: .categories)
+        city = try values.decodeIfPresent(String.self, forKey: .city)
+        region = try values.decodeIfPresent(String.self, forKey: .region)
+        cityService = try values.decodeIfPresent(String.self, forKey: .cityService)
+         type = try values.decodeIfPresent(String.self, forKey: .type)
 	}
 
 }
