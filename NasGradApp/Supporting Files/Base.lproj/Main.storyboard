@@ -145,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EsG-Ob-mNm">
-                                <rect key="frame" x="0.0" y="64" width="375" height="892"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="843"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0xp-eW-kSu">
                                         <rect key="frame" x="71" y="64.5" width="233" height="165"/>
@@ -185,6 +185,10 @@
                                             <constraint firstAttribute="height" constant="250" id="oUc-oG-YR2"/>
                                         </constraints>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_me" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-jP-CdA">
+                                        <rect key="frame" x="172.5" y="403.5" width="30" height="55"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="0.5"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="adress" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYP-oi-mwJ">
                                         <rect key="frame" x="162" y="592" width="52" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -206,7 +210,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CrP-i3-7QH" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
-                                        <rect key="frame" x="39" y="718" width="301" height="166"/>
+                                        <rect key="frame" x="39" y="737" width="301" height="166"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -243,6 +247,14 @@
                                             <action selector="deleteImage" destination="OVd-ki-7Wg" eventType="touchUpInside" id="2Gn-4n-DJP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bk-5o-UDa">
+                                        <rect key="frame" x="124" y="699" width="130" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Dodaj tip problema"/>
+                                        <connections>
+                                            <segue destination="B9v-5q-HAb" kind="show" identifier="showIssueTypesSegue" id="LnE-B4-tgi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Rjt-nd-zQR" firstAttribute="centerX" secondItem="EsG-Ob-mNm" secondAttribute="centerX" id="3hv-Fz-J7p"/>
@@ -258,7 +270,9 @@
                                     <constraint firstItem="Rjt-nd-zQR" firstAttribute="top" secondItem="X9b-j7-bCc" secondAttribute="bottom" id="OA6-z9-8Tt"/>
                                     <constraint firstItem="0Ch-5W-elH" firstAttribute="leading" secondItem="0xp-eW-kSu" secondAttribute="trailing" constant="8" symbolic="YES" id="Ptg-wp-ivu"/>
                                     <constraint firstAttribute="bottom" secondItem="0Ch-5W-elH" secondAttribute="bottom" constant="730" id="R32-dr-pHz"/>
+                                    <constraint firstItem="Dw2-jP-CdA" firstAttribute="centerX" secondItem="Rjt-nd-zQR" secondAttribute="centerX" id="Sbg-zh-36o"/>
                                     <constraint firstItem="0xp-eW-kSu" firstAttribute="leading" secondItem="EsG-Ob-mNm" secondAttribute="leading" constant="71" id="WW1-3W-TYq"/>
+                                    <constraint firstItem="Dw2-jP-CdA" firstAttribute="bottom" secondItem="Rjt-nd-zQR" secondAttribute="centerY" id="acO-hf-K09"/>
                                     <constraint firstItem="vYP-oi-mwJ" firstAttribute="centerX" secondItem="EsG-Ob-mNm" secondAttribute="centerX" id="bxg-d2-tsG"/>
                                     <constraint firstItem="Rjt-nd-zQR" firstAttribute="leading" secondItem="EsG-Ob-mNm" secondAttribute="leading" constant="35" id="etn-dQ-T1J"/>
                                     <constraint firstItem="X9b-j7-bCc" firstAttribute="centerX" secondItem="EsG-Ob-mNm" secondAttribute="centerX" id="gQj-kg-mKq"/>
@@ -285,7 +299,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Prijavi problem" id="4Pd-7B-uPO">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LzR-vz-VNU"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="yhF-Eb-rHc"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -306,7 +319,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXs-yk-lSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3684" y="-627.88605697151434"/>
+            <point key="canvasLocation" x="2744.8000000000002" y="-777.21139430284859"/>
+        </scene>
+        <!--Izaberi tipove problema-->
+        <scene sceneID="wCo-YZ-oVa">
+            <objects>
+                <tableViewController id="B9v-5q-HAb" customClass="IssueTypesViewController" customModule="NasGradApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="M5S-zf-G6V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dCw-zi-V2O">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dCw-zi-V2O" id="esf-Jw-4ij">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="B9v-5q-HAb" id="PB2-BJ-W83"/>
+                            <outlet property="delegate" destination="B9v-5q-HAb" id="JLb-ZA-f05"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Izaberi tipove problema" id="luq-Sr-4pX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u92-66-o37" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3545" y="-627"/>
         </scene>
         <!--Svi problemi-->
         <scene sceneID="tne-QT-ifu">
@@ -438,7 +480,7 @@
                     <navigationItem key="navigationItem" title="Svi problemi" id="Dhl-qv-eTr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aYs-65-dlB">
                             <connections>
-                                <segue destination="VUg-sm-JGW" kind="presentation" id="cVP-Xz-WxR"/>
+                                <segue destination="OVd-ki-7Wg" kind="show" id="1j0-7X-tmS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -826,28 +868,11 @@
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="118.29085457271366"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hm0-ip-dag">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VUg-sm-JGW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hCf-ja-HoU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="OVd-ki-7Wg" kind="relationship" relationship="rootViewController" id="eLm-TJ-lHK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RkS-92-ez0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2744.8000000000002" y="-627.4362818590705"/>
-        </scene>
     </scenes>
     <resources>
         <image name="baseline_format_list_bulleted_black_24pt_" width="24" height="24"/>
         <image name="baseline_map_black_24pt_" width="24" height="24"/>
         <image name="gradskoZelenilo" width="100" height="150"/>
+        <image name="icon_me" width="30" height="55"/>
     </resources>
 </document>

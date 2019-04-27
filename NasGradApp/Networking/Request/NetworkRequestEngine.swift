@@ -16,6 +16,26 @@ fileprivate struct HttpMethod {
 
 class NetworkRequestEngine: NetworkRequestEngineProtocol {
     
+    func getNewIssueRegions() -> URLRequest {
+        let endpointURL = URL(string: Constants.API.getNewIssueRegions)!
+        return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
+    }
+    
+    func getNewIssueCityServices() -> URLRequest {
+        let endpointURL = URL(string: Constants.API.getNewIssueCityServices)!
+        return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
+    }
+    
+    func getNewIssueTypes() -> URLRequest {
+        let endpointURL = URL(string: Constants.API.getNewIssueTypes)!
+        return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
+    }
+    
+    func getNewIssueCityServiceTypes() -> URLRequest {
+        let endpointURL = URL(string: Constants.API.getNewIssueCityServiceTypes)!
+        return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!
+    }
+    
     func getAllIssues() -> URLRequest {
         let endpointURL = URL(string: Constants.API.getAllIssues)!
         return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!

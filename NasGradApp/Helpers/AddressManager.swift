@@ -12,7 +12,7 @@ import CoreLocation
 class AddressManager {
     static let shared = AddressManager()
     
-    func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String, completion: @escaping (String) -> Void) {
+    func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String, completion: @escaping (String, String) -> Void) {
         var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
         let lat: Double = Double("\(pdblLatitude)")!
         let lon: Double = Double("\(pdblLongitude)")!
@@ -27,13 +27,14 @@ class AddressManager {
                 if (error != nil)
                 {
                     print("reverse geodcode fail: \(error!.localizedDescription)")
-                    completion("")
+                    completion("","")
                 }
                 let pm = placemarks! as [CLPlacemark]
                 
                 if pm.count > 0 {
                     let pm = placemarks![0]
                     var addressString : String = ""
+                    var regionString : String = ""
                     if pm.thoroughfare != nil {
                         addressString = addressString + pm.thoroughfare!
                         
@@ -45,15 +46,16 @@ class AddressManager {
                     }
                     if pm.locality != nil {
                         addressString = addressString + pm.locality! + ", "
+                        regionString = pm.locality!
                     }
                     
                     if (addressString.hasSuffix(", ")) {
                         addressString.removeLast(2)
                     }
                     
-                    completion(addressString)
+                    completion(addressString,regionString)
                 } else {
-                    completion("")
+                    completion("", "")
                 }
         })
         

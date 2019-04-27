@@ -107,7 +107,7 @@ class IssueDetailsViewController: BaseViewController {
                 self.networkEngine.performNetworkRequest(forURLRequest: issueDetailsRequest, responseType: Issue.self) { (detailsData, response, error) in
                     self.detailsService.setData(detailsData)
                     
-                    AddressManager.shared.getAddressFromLatLon(pdblLatitude: "\(self.detailsService.getViewData()?.location?.latitude ?? -1)", withLongitude: "\(self.detailsService.getViewData()?.location?.longitude ?? -1)", completion: { (address) in
+                    AddressManager.shared.getAddressFromLatLon(pdblLatitude: "\(self.detailsService.getViewData()?.location?.latitude ?? -1)", withLongitude: "\(self.detailsService.getViewData()?.location?.longitude ?? -1)", completion: { (address,region) in
                         DispatchQueue.main.async {
                             self.locationLabel.text = "Adresa: \(address)"
                             if address == "" {

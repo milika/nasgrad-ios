@@ -30,6 +30,7 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
     @IBOutlet weak var adressLabel: UILabel!
     
     @IBOutlet weak var mapView: GMSMapView!
+      @IBOutlet private weak var mapCenterPinImage: UIImageView!
     
     let locationManager = CLLocationManager()
     var lStartLocation:Bool = false
@@ -37,7 +38,24 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
     var images = [UIImage]()
     var currentImageIndex:Int = 0
     
+    var region:String = ""
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.region = ""
+        
+        detailTextView.layer.cornerRadius = 4
+        detailTextView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
+        detailTextView.layer.borderWidth = 1.0
+        
+        displayImages()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         var contentRect = CGRect.zero
         
         for view in mainScrollView.subviews {
@@ -46,9 +64,7 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
         contentRect.size.height += 20
         mainScrollView.contentSize = contentRect.size
         
-        detailTextView.layer.cornerRadius = 4
-        detailTextView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
-        detailTextView.layer.borderWidth = 1.0
+       
         
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
@@ -63,7 +79,7 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
             locationManager.startUpdatingLocation()
         }
         
-        displayImages()
+        
         
     }
     
@@ -83,12 +99,15 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
         
         let coord:CLLocationCoordinate2D = self.mapView.camera.target;
         
-        AddressManager.shared.getAddressFromLatLon(pdblLatitude: "\(coord.latitude)", withLongitude: "\(coord.longitude)", completion: { (address) in
+        
+        AddressManager.shared.getAddressFromLatLon(pdblLatitude: "\(coord.latitude)", withLongitude: "\(coord.longitude)", completion: { (address, region) in
             DispatchQueue.main.async {
                 self.adressLabel.text = "Adresa: \(address)"
+                self.region = region
                 if address == "" {
                     self.adressLabel.text = "Adresa: Nedostupno"
                 } else {
+                    /*
                     mapView.clear()
                     
                     let marker = GMSMarker()
@@ -96,6 +115,7 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
                     marker.title = self.adressLabel.text
                     marker.snippet = self.adressLabel.text
                     marker.map = mapView
+ */
                 }
             }
         })
@@ -188,6 +208,18 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
             imagePageControl.currentPage = currentImageIndex;
             imagePageControl.numberOfPages = 1;
             imagePageControl.isEnabled = false;
+        }
+    }
+    
+    // MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segueId = segue.identifier {
+            if segueId == Constants.Segue.showIssueTypesSegue {
+                if let issueTypesViewController = segue.destination as? IssueTypesViewController {
+                    issueTypesViewController.region = self.region
+                }
+            }
         }
     }
   
