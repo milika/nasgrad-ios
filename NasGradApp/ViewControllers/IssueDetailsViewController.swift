@@ -42,7 +42,9 @@ class IssueDetailsViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.title = "Detalji problema"
+        if #available(iOS 11.0, *) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
        
     }
     

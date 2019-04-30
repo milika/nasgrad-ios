@@ -15,6 +15,10 @@ import CoreLocation
 
 class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    let networkEngine: NetworkEngineProtocol = container.resolve(NetworkEngineProtocol.self)!
+    let networkRequestEngine: NetworkRequestEngineProtocol = container.resolve(NetworkRequestEngineProtocol.self)!
+    
+    
     @IBOutlet weak var mainScrollView: UIScrollView!
     
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -56,14 +60,8 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        var contentRect = CGRect.zero
-        
-        for view in mainScrollView.subviews {
-            contentRect = contentRect.union(view.frame)
-        }
-        contentRect.size.height += 20
-        mainScrollView.contentSize = contentRect.size
-        
+       
+        // updateContentSize()
        
         
         mapView.delegate = self
@@ -83,14 +81,30 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
         
     }
     
+    override func viewDidLayoutSubviews() {
+        updateContentSize()
+    }
+    
+    func updateContentSize() {
+        var contentRect = CGRect.zero
+        
+        for view in mainScrollView.subviews {
+            contentRect = contentRect.union(view.frame)
+        }
+        contentRect.size.height += 20
+        mainScrollView.contentSize = contentRect.size
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         
         if (lStartLocation) {
             // set current location
-            let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 8)
+            let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 15)
             mapView.camera = camera
+        } else {
+            manager.stopUpdatingLocation()
         }
     }
     
@@ -119,6 +133,37 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
                 }
             }
         })
+    }
+    
+    @IBAction func cancel() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func done() {
+        /*
+        val categories: List<String?>?,
+        val description: String?,
+        val id: String?,
+        val issueType: String?,
+        val location: Location?,
+        val ownerId: String?,
+        val state: Int?,
+        val title: String?*/
+        
+        var newIssueDict:Dictionary<String, AnyObject> = Dictionary()
+        
+        newIssueDict.updateValue(detailTextView?.text as AnyObject, forKey: "description");
+        newIssueDict.updateValue(descriptionTextField?.text as AnyObject, forKey: "title");
+
+        
+          let newIssueRequest = networkRequestEngine.newIssue(params: newIssueDict)
+        
+        self.networkEngine.performNetworkRequest(forURLRequest: newIssueRequest, responseType: [Type].self, completionHandler: { (typesData, response, error) in
+            
+              self.dismiss(animated: true, completion: nil)
+        })
+        
+      
     }
     
     // MARK: - Images Handling

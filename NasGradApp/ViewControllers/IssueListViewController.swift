@@ -40,7 +40,9 @@ class IssueListViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.title = "Svi problemi"
+        if #available(iOS 11.0, *) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
        
     }
     

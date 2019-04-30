@@ -16,6 +16,11 @@ fileprivate struct HttpMethod {
 
 class NetworkRequestEngine: NetworkRequestEngineProtocol {
     
+    func newIssue(params:Dictionary<String, AnyObject>?) -> URLRequest {
+        let endpointURL = URL(string: Constants.API.newIssue)!
+        return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: params)!
+    }
+    
     func getNewIssueRegions() -> URLRequest {
         let endpointURL = URL(string: Constants.API.getNewIssueRegions)!
         return createRequestWithUrl(endpointURL, httpMethod: HttpMethod.Get, params: nil)!

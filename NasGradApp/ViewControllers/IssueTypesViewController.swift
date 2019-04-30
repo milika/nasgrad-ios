@@ -16,10 +16,10 @@ class IssueTypesViewController: UITableViewController {
     
     var selected = [IndexPath]()
     
-    var regionsData = [Type]()
-    var cityServicesData = [Type]()
-    var typesData = [Type]()
-    var cityServiceTypesData = [Type]()
+    static var regionsData = [Type]()
+    static var cityServicesData = [Type]()
+    static var typesData = [Type]()
+    static var cityServiceTypesData = [Type]()
     
     public var region:String = ""
     
@@ -51,6 +51,8 @@ class IssueTypesViewController: UITableViewController {
         } else {
             renderData()
         }
+        
+         updateTitle()
     }
     
     private func renderData() {
@@ -61,7 +63,7 @@ class IssueTypesViewController: UITableViewController {
         
         // find region data form region
         var selRegionData:Type? = nil
-        for regionData in regionsData {
+        for regionData in IssueTypesViewController.regionsData {
             if regionData.city == region {
                 selRegionData = regionData
                 break
@@ -73,7 +75,7 @@ class IssueTypesViewController: UITableViewController {
             
             // filter services
             //var selServicesData = [Type]()
-              for cityServiceData in cityServicesData {
+              for cityServiceData in IssueTypesViewController.cityServicesData {
                 if cityServiceData.region == selRegionData?.id {
                     //selServicesData.append(cityServiceData)
                      var seg:Segment = Segment()
@@ -87,7 +89,7 @@ class IssueTypesViewController: UITableViewController {
                 // get all issues for all city services gathered
                 for i in 0..<tableData.count {
                    
-                    for cityServiceTypeData in cityServiceTypesData {
+                    for cityServiceTypeData in IssueTypesViewController.cityServiceTypesData {
                         if tableData[i].serviceData?.id == cityServiceTypeData.cityService {
                             tableData[i].issuesData.append(cityServiceTypeData)
                         }
@@ -99,7 +101,7 @@ class IssueTypesViewController: UITableViewController {
                     for issueData in tableData[i].issuesData {
                         tableData[i].types.append("?")
                         
-                        for typeData in typesData {
+                        for typeData in IssueTypesViewController.typesData {
                             if issueData.type == typeData.id  {
                                 if typeData.name != nil {
                                     tableData[i].types[tableData[i].types.count-1] = typeData.name!
@@ -123,10 +125,10 @@ class IssueTypesViewController: UITableViewController {
     }
     
     private func hasData() -> Bool {
-        if regionsData.count > 0 {
-            if cityServicesData.count > 0 {
-                if typesData.count > 0 {
-                    if cityServiceTypesData.count > 0 {
+        if IssueTypesViewController.regionsData.count > 0 {
+            if IssueTypesViewController.cityServicesData.count > 0 {
+                if IssueTypesViewController.typesData.count > 0 {
+                    if IssueTypesViewController.cityServiceTypesData.count > 0 {
                         return true
                     }
                 }
@@ -156,40 +158,49 @@ class IssueTypesViewController: UITableViewController {
         showLoader {
             
             self.networkEngine.performNetworkRequest(forURLRequest: getRegionsRequest, responseType: [Type].self, completionHandler: { (typesData, response, error) in
-                self.regionsData.removeAll()
-                self.regionsData.append(contentsOf: typesData!)
+                IssueTypesViewController.regionsData.removeAll()
+                IssueTypesViewController.regionsData.append(contentsOf: typesData!)
                 // DDLogVerbose(String(describing: typesData))
                 self.checkFetchCompletition(withCompletionHandler: withCompletionHandler)
             })
             
             
             self.networkEngine.performNetworkRequest(forURLRequest: getCityServicesRequest, responseType: [Type].self, completionHandler: { (typesData, response, error) in
-                self.cityServicesData.removeAll()
-                self.cityServicesData.append(contentsOf: typesData!)
+                IssueTypesViewController.cityServicesData.removeAll()
+                IssueTypesViewController.cityServicesData.append(contentsOf: typesData!)
                 // DDLogVerbose(String(describing: typesData))
                 self.checkFetchCompletition(withCompletionHandler: withCompletionHandler)
             })
             
             self.networkEngine.performNetworkRequest(forURLRequest: getTypesRequest, responseType: [Type].self, completionHandler: { (typesData, response, error) in
-                self.typesData.removeAll()
-                self.typesData.append(contentsOf: typesData!)
+                IssueTypesViewController.typesData.removeAll()
+                IssueTypesViewController.typesData.append(contentsOf: typesData!)
                 // DDLogVerbose(String(describing: typesData))
                 self.checkFetchCompletition(withCompletionHandler: withCompletionHandler)
-                
                 
             })
             
             self.networkEngine.performNetworkRequest(forURLRequest: getCityServiceTypesRequest, responseType: [Type].self, completionHandler: { (typesData, response, error) in
-                self.cityServiceTypesData.removeAll()
-                self.cityServiceTypesData.append(contentsOf: typesData!)
+                IssueTypesViewController.cityServiceTypesData.removeAll()
+                IssueTypesViewController.cityServiceTypesData.append(contentsOf: typesData!)
                 // DDLogVerbose(String(describing: typesData))
                 self.checkFetchCompletition(withCompletionHandler: withCompletionHandler)
                 
-                
-                
             })
-            
-            
+        }
+    }
+    
+    @IBAction func clearSelection() {
+      selected.removeAll()
+        self.tableView.reloadData()
+         updateTitle()
+    }
+    
+    func updateTitle() {
+        if selected.count == 0 {
+            self.title = "Izaberite probleme"
+        } else {
+            self.title = "Izaberano problema: \(selected.count)"
         }
     }
     
@@ -206,6 +217,7 @@ class IssueTypesViewController: UITableViewController {
                     selected.remove(at: index)
                 }
             }
+             updateTitle()
         }
     }
     

@@ -52,6 +52,8 @@ struct Constants {
          static let getNewIssueCityServices = apiUrl + "/CRUD/GetAllCityServices"
          static let getNewIssueTypes = apiUrl + "/CRUD/GetAllTypes"
          static let getNewIssueCityServiceTypes = apiUrl + "/CRUD/GetAllCityServiceTypes"
+        
+         static let newIssue = apiUrl + "/NewIssue"
     }
     
     static let environment = Environment(rawValue: infoForKey("Environment") ?? "RELEASE") ?? .release

@@ -18,5 +18,7 @@ protocol NetworkRequestEngineProtocol {
     func getNewIssueCityServices() -> URLRequest
      func getNewIssueTypes() -> URLRequest
     func getNewIssueCityServiceTypes() -> URLRequest
+    
+    func newIssue(params:Dictionary<String, AnyObject>?) -> URLRequest
 }
 
