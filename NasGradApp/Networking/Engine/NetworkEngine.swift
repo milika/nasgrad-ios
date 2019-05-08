@@ -35,6 +35,11 @@ class NetworkEngine: NetworkEngineProtocol {
                 return
             }
             
+                if let toString = String(data: receivedData, encoding: String.Encoding.ascii) {
+                    completionHandler(toString as! T, urlResponse, error)
+                    return
+                }
+            
             completionHandler(nil, urlResponse, error)
         }
         

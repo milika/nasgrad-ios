@@ -148,19 +148,62 @@ class AddIssueViewController: BaseViewController, GMSMapViewDelegate, CLLocation
         val location: Location?,
         val ownerId: String?,
         val state: Int?,
-        val title: String?*/
+        val title: String?
+         
+         public string Id { get; set; }
+         
+         NasGradIssue
+         public string OwnerId { get; set; }
+         public string Title { get; set; }
+         public string Description { get; set; }
+         public List<string> CityServiceTypes { get; set; }
+         public StateEnum State { get; set; }
+         // public List<string> Pictures { get; set; }
+         public IssueLocation Location { get; set; }
+         // public string PicturePreview { get; set; }
+         public int SentCount { get; set; }
+         public int LikedCount { get; set; }
+         public int DislikedCount { get; set; }
+         public bool IsApproved { get; set; }
+         
+         NasGradPicture
+         public string Content { get; set; }
+         public bool Visible { get; set; }
+         */
+        
+        
+         var issueDict:Dictionary<String, AnyObject> = Dictionary()
+        issueDict.updateValue(detailTextView?.text as AnyObject, forKey: "Description");
+        issueDict.updateValue(descriptionTextField?.text as AnyObject, forKey: "Title");
+        
+       
+        
+        var pic64:String = "VBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0jRW/QAAAApJREFUeJxjYgAAAAYAAzY3fKgAAAAASUVORK5CYII=";
+        
+        var pictDict:Dictionary<String, AnyObject> = Dictionary()
+        pictDict.updateValue(1 as AnyObject, forKey: "Id");
+        pictDict.updateValue(true as AnyObject, forKey: "Visible");
+        pictDict.updateValue(pic64 as AnyObject, forKey: "Content");
         
         var newIssueDict:Dictionary<String, AnyObject> = Dictionary()
-        
-        newIssueDict.updateValue(detailTextView?.text as AnyObject, forKey: "description");
-        newIssueDict.updateValue(descriptionTextField?.text as AnyObject, forKey: "title");
+        newIssueDict.updateValue(issueDict as AnyObject, forKey: "issue");
+        newIssueDict.updateValue(pictDict as AnyObject, forKey: "pictureInfo");
 
         
           let newIssueRequest = networkRequestEngine.newIssue(params: newIssueDict)
         
-        self.networkEngine.performNetworkRequest(forURLRequest: newIssueRequest, responseType: [Type].self, completionHandler: { (typesData, response, error) in
+        self.networkEngine.performNetworkRequest(forURLRequest: newIssueRequest, responseType: String.self /*[Type].self*/, completionHandler: { (stringData, response, error) in
+            
+            if !(stringData?.contains("Issue added") ?? false) {
+                let alertController = UIAlertController(title: "Error submiting", message:
+                    stringData, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                
+                self.present(alertController, animated: true, completion: nil)
+            } else {
             
               self.dismiss(animated: true, completion: nil)
+            }
         })
         
       
